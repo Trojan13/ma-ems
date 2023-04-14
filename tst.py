@@ -1,9 +1,5 @@
 import asyncio
-import platform
-import sys
 
-from bleak import BleakClient, BleakScanner
-from bleak.exc import BleakError
 
 
 ADDRESS = "F9:8B:6F:12:EC:AE"
@@ -86,36 +82,21 @@ class IntensitySetBean(BaseBean):
         if info_byte_array is None or len(info_byte_array) <= 0:
             return -1
         return info_byte_array[0]
-    
-def device_state_notify_handler(sender, data):
-    print("Received data: {0}".format(data))
 
 
 
-async def main(ble_address: str):
-    device = await BleakScanner.find_device_by_address(ble_address, timeout=20.0)
-    if not device:
-        raise BleakError(
-            f"A device with address {ble_address} could not be found.")
-    async with BleakClient(device) as client:
-        await client.start_notify(CHARACTERISTICS, device_state_notify_handler)
-
-        await asyncio.sleep(1.0)
-        device_state = bytes(await client.read_gatt_char(CHARACTERISTICS))
-        print("device_state: {0}".format(device_state))
-        await asyncio.sleep(1.0)
-        # Create a new BaseBean based on the read data
-        intensity_set_bean = IntensitySetBean(intensity=5)
-        base_bean = BaseBean(intensity_set_bean.get_command_byte(),input_byte_array=device_state)
-        # Write the intensity set bean data to the device
-        # Replace `write_characteristic_uuid` with the UUID of the characteristic you want to write
-        await client.write_gatt_char(CHARACTERISTICS, base_bean.get_all_byte())
-        print("Intensity set to 5")
 
 
 
-        print("Finish!")
+device_state = [0x5a, 0x05, 0x07, 0x00, 0x00, 0x66]
+
+intensity_set_bean = IntensitySetBean(intensity=5)
+print(intensity_set_bean.get_command_byte())
+base_bean = BaseBean(intensity_set_bean.get_command_byte(),input_byte_array=device_state)
+
+print("Intensity set to 5")
 
 
-if __name__ == "__main__":
-    asyncio.run(main(sys.argv[1] if len(sys.argv) == 2 else ADDRESS))
+
+print("Finish!")
+
