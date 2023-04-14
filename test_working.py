@@ -7,9 +7,7 @@ from bleak.exc import BleakError
 
 
 ADDRESS = "F9:8B:6F:12:EC:AE"
-WRITE_SERVICE = "64668730-033f-9393-6ca2-0e9401adeb32"
-READ_SERVICE = "64668730-033f-9393-6ca2-0e9401adeb32"
-
+CHARACTERISTICS = "64668730-033f-9393-6ca2-0e9401adeb32"
 
 def device_state_notify_handler(sender, data):
     print("Received data: {0}".format(data))

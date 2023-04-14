@@ -1,3 +1,15 @@
+import asyncio
+import platform
+import sys
+
+from bleak import BleakClient, BleakScanner
+from bleak.exc import BleakError
+
+
+ADDRESS = "F9:8B:6F:12:EC:AE"
+CHARACTERISTICS = "64668730-033f-9393-6ca2-0e9401adeb32"
+
+
 class BaseBean:
     def __init__(self, command_byte, info_byte_array=None, input_byte_array=None):
         self.start_byte = 90
@@ -75,23 +87,38 @@ class IntensitySetBean(BaseBean):
             return -1
         return info_byte_array[0]
     
+def device_state_notify_handler(sender, data):
+    print("Received data: {0}".format(data))
 
 
-def main():
-    # Create an IntensitySetBean instance
-    intensity_set_bean = IntensitySetBean(intensity=5)
 
-    # Get and print the command byte
-    command_byte = intensity_set_bean.get_command_byte()
-    print(f"Command byte: {command_byte:02X}")
+async def main(ble_address: str):
+    device = await BleakScanner.find_device_by_address(ble_address, timeout=20.0)
+    if not device:
+        raise BleakError(
+            f"A device with address {ble_address} could not be found.")
+    async with BleakClient(device) as client:
+        await client.start_notify(CHARACTERISTICS, device_state_notify_handler)
 
-    # Get and print the intensity value
-    intensity = intensity_set_bean.get_intensity()
-    print(f"Intensity: {intensity}")
+        await asyncio.sleep(1.0)
+        device_state = bytes(await client.read_gatt_char(CHARACTERISTICS))
+        print("device_state: {0}".format(device_state))
+        await asyncio.sleep(1.0)
+        # Create a new BaseBean based on the read data
+        base_bean = BaseBean(input_byte_array=device_state)
 
-    # Print the entire byte array
-    intensity_set_bean.print_all_byte()
+        # Set an IntensitySetBean with an intensity of 5
+        intensity_set_bean = IntensitySetBean(intensity=5)
+
+        # Write the intensity set bean data to the device
+        # Replace `write_characteristic_uuid` with the UUID of the characteristic you want to write
+        await client.write_gatt_char(CHARACTERISTICS, intensity_set_bean.get_all_byte())
+        print("Intensity set to 5")
+
+
+
+        print("Finish!")
 
 
 if __name__ == "__main__":
-    main()    
+    asyncio.run(main(sys.argv[1] if len(sys.argv) == 2 else ADDRESS))
