@@ -29,6 +29,7 @@ async def main(ble_address: str):
 
  
         print("start brute force")
+        device_state = bytes(await client.read_gatt_char(READ_SERVICE))
         for byte1 in range(256):
             for byte2 in range(256):
                 for byte3 in range(256):
@@ -36,7 +37,14 @@ async def main(ble_address: str):
                         byteArray = [0x5a, 0x05, byte1, byte2, byte3, byte4]
                         print("sending: {0}".format(byteArray))
                         await client.write_gatt_char(WRITE_SERVICE, bytearray(byteArray))
-                        await asyncio.sleep(0.2)
+                        await asyncio.sleep(0.1)
+                        new_device_state = bytes(await client.read_gatt_char(READ_SERVICE))
+                        if new_device_state != device_state:
+                            print("new device state: {0}".format(new_device_state))
+                            print("sending: {0}".format(byteArray))
+                            device_state = new_device_state
+
+
 
         print("Finish!")
 
