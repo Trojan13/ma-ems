@@ -7,30 +7,23 @@ CHARACTERISTICS = "64668730-033f-9393-6ca2-0e9401adeb32"
 
 
 class BaseBean:
-    def __init__(self, command_byte, info_byte_array=None, input_byte_array=None):
-        self.start_byte = 90
-        self.checksum_byte = bytearray(2)
-        if input_byte_array is not None:
-            if len(input_byte_array) < 5 or input_byte_array[0] != 90:
-                raise ValueError("not lt1102s datas")
-
-            self.length_byte = input_byte_array[1]
-            self.command_byte = input_byte_array[2]
-            i = self.length_byte - 4
-            self.info_byte_array = bytearray(i)
-            for i2 in range(i):
-                self.info_byte_array[i2] = input_byte_array[i2 + 3]
-
-            self.init_checksum()
-            if (self.checksum_byte[0] != input_byte_array[-2] or
-                    self.checksum_byte[1] != input_byte_array[-1]):
-                raise ValueError("checksum error")
-
-        else:
-            self.command_byte = command_byte
-            self.info_byte_array = bytearray(info_byte_array) if info_byte_array else None
-            self.length_byte = len(self.info_byte_array) + 4
-            self.init_checksum()
+    def __init__(self, b, bArr):
+        self.start_byte = 0x5A
+        length =  bArr.length
+        if length < 5 or bArr[0] != self.start_byte:
+            raise ValueError("not lt1102s datas")
+        b = bArr[1]
+        self.length_byte = b
+        self.command_byte = bArr[2]
+        i = self.length_byte - 4
+        self.info_byte_array = bytearray(i)
+        for i2 in range(i):
+            self.info_byte_array[i2] = bArr[i2 + 3]
+        self.init_checksum()
+        bArr2 = self.checksum_byte
+        if bArr2[0] != bArr[-2] or bArr2[1] != bArr[-1]:
+            raise ValueError("checksum error")
+        
 
     def get_command_byte(self):
         return self.command_byte
@@ -70,29 +63,33 @@ class BaseBean:
                 i += b & 255
         self.checksum_byte[0] = (i >> 8) & 255
         self.checksum_byte[1] = i & 255
-
-class IntensitySetBean(BaseBean):
+class IntensitySetBean:
     COMMAND = 3
 
-    def __init__(self, intensity):
-        super().__init__(command_byte=self.COMMAND, info_byte_array=[intensity])
+    def __init__(self, i: int):
+        self._info_byte_array = bytearray([i])
 
-    def get_intensity(self):
-        info_byte_array = self.get_info_byte_array()
-        if info_byte_array is None or len(info_byte_array) <= 0:
+    def get_intensity(self) -> int:
+        if not self._info_byte_array or len(self._info_byte_array) <= 0:
             return -1
-        return info_byte_array[0]
-
-
-
-
+        return self._info_byte_array[0]
 
 
 device_state = [0x5a, 0x05, 0x07, 0x00, 0x00, 0x66]
 
-intensity_set_bean = IntensitySetBean(intensity=5)
-print(intensity_set_bean.get_command_byte())
-base_bean = BaseBean(intensity_set_bean.get_command_byte(),input_byte_array=device_state)
+
+print("device_state: {0}".format(list(device_state)))
+
+intensity_set_bean = IntensitySetBean(5)
+intensity_set_bean_command_byte = intensity_set_bean.get_command_byte()
+base_bean = BaseBean(intensity_set_bean_command_byte,device_state)
+
+        # Create a new IntensitySetBean based on the BaseBean instance with the new intensity value
+new_intensity = 5
+
+print(base_bean.get_command_byte())
+print("base_bean: {0}".format(list(base_bean.get_all_byte())))
+
 
 print("Intensity set to 5")
 
