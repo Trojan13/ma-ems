@@ -77,7 +77,12 @@ class IntensitySetBean:
 
 device_state = [0x5a, 0x05, 0x07, 0x00, 0x00, 0x66]
 
+def generate_checksum(length_byte, command_byte, info_byte_array):
+    total = 90 + length_byte + command_byte
+    for b in info_byte_array:
+        total += b
 
+<<<<<<< Updated upstream
 print("device_state: {0}".format(list(device_state)))
 
 intensity_set_bean = IntensitySetBean(5)
@@ -86,14 +91,39 @@ base_bean = BaseBean(intensity_set_bean_command_byte,device_state)
 
         # Create a new IntensitySetBean based on the BaseBean instance with the new intensity value
 new_intensity = 5
+=======
+    checksum_byte_0 = (total >> 8) & 255
+    checksum_byte_1 = total & 255
+
+    return (checksum_byte_0, checksum_byte_1)
+
+length_byte = 10
+command_byte = 5
+info_byte_array = [1, 2, 3, 4, 5, 6, 7, 8]
+
+checksum_byte_0, checksum_byte_1 = generate_checksum(length_byte, command_byte, info_byte_array)
+print("Checksum bytes:", checksum_byte_0, checksum_byte_1)
+>>>>>>> Stashed changes
 
 print(base_bean.get_command_byte())
 print("base_bean: {0}".format(list(base_bean.get_all_byte())))
 
+<<<<<<< Updated upstream
+=======
+intensity_set_bean = IntensitySetBean(intensity=5)
+print(intensity_set_bean.get_command_byte())
+print(list(intensity_set_bean.get_all_byte()))
+base_bean = BaseBean(intensity_set_bean.get_command_byte(),input_byte_array=device_state)
+>>>>>>> Stashed changes
 
 print("Intensity set to 5")
 
 
+input_byte_array = [90, 5, 3, 5, 0, 103]
+i = len(input_byte_array) - 4
+info_byte_array = bytearray(i)
+for i2 in range(i):
+   info_byte_array[i2] = input_byte_array[i2 + 3]
 
-print("Finish!")
+print(list(info_byte_array))
 

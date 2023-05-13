@@ -32,7 +32,8 @@ class BaseBean:
 
         else:
             self.command_byte = command_byte
-            self.info_byte_array = bytearray(info_byte_array) if info_byte_array else None
+            self.info_byte_array = bytearray(
+                info_byte_array) if info_byte_array else None
             self.length_byte = len(self.info_byte_array) + 4
             self.init_checksum()
 
@@ -75,21 +76,23 @@ class BaseBean:
         self.checksum_byte[0] = (i >> 8) & 255
         self.checksum_byte[1] = i & 255
 
+
 class IntensitySetBean(BaseBean):
     COMMAND = 3
 
     def __init__(self, intensity):
-        super().__init__(command_byte=self.COMMAND, info_byte_array=[intensity])
+        super().__init__(command_byte=self.COMMAND,
+                         info_byte_array=[intensity])
 
     def get_intensity(self):
         info_byte_array = self.get_info_byte_array()
         if info_byte_array is None or len(info_byte_array) <= 0:
             return -1
         return info_byte_array[0]
-    
-def device_state_notify_handler(sender, data):
-    print("Received data: {0}".format(data))
 
+
+def device_state_notify_handler(sender, data):
+    print("Received data: {0}".format(list(data)))
 
 
 async def main(ble_address: str):
@@ -102,17 +105,18 @@ async def main(ble_address: str):
 
         await asyncio.sleep(1.0)
         device_state = bytes(await client.read_gatt_char(CHARACTERISTICS))
-        print("device_state: {0}".format(device_state))
+        print("device_state: {0}".format(list(device_state)))
         await asyncio.sleep(1.0)
         # Create a new BaseBean based on the read data
         intensity_set_bean = IntensitySetBean(intensity=5)
-        base_bean = BaseBean(intensity_set_bean.get_command_byte(),input_byte_array=device_state)
+        base_bean = BaseBean(
+            intensity_set_bean.get_command_byte(), input_byte_array=device_state)
+        print("writing: {0}".format(list(base_bean.get_all_byte())))
+
         # Write the intensity set bean data to the device
         # Replace `write_characteristic_uuid` with the UUID of the characteristic you want to write
         await client.write_gatt_char(CHARACTERISTICS, base_bean.get_all_byte())
         print("Intensity set to 5")
-
-
 
         print("Finish!")
 
