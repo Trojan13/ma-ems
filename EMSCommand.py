@@ -1,0 +1,15 @@
+from enum import Enum
+
+class EMSCommand(enum):
+    INTENSITY_ADD = 1
+    INTENSITY_CUT = 2
+    INTENSITY_SET = 3
+    PROGRAM_SET = 4
+    INTENSITY_LOCK = 5
+    PROGRAM_PAUSE = 6
+    DEVICE_STATE_READ = 7
+    VERSION_READ = 8
+    INTENSITY_NOTISE = 11
+    CURE_STOP_NOTISE = 12
+    SHUTDOWN = 13
+
