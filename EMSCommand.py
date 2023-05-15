@@ -1,4 +1,3 @@
-from enum import Enum
 
 class EMSCommand(Enum):
     INTENSITY_ADD = 1

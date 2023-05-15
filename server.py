@@ -5,8 +5,6 @@ import sys
 from bleak import BleakClient, BleakScanner
 from bleak.exc import BleakError
 from BLEDeviceState import BLEDeviceState
-from EMSCommand import EMSCommand
-from EMSConnectionState import EMSConnectionState
 from generate_packet import generate_packet
 
 ADDRESS = "F9:8B:6F:12:EC:AE"
@@ -24,7 +22,7 @@ def device_state_notify_handler(sender, data):
 
 async def get_device_info(client):
     while client.is_connected:
-        await client.write_gatt_char(CHARACTERISTICS, generate_packet(EMSCommand.SET_INTENSITY, [0x00]), True)
+        await client.write_gatt_char(CHARACTERISTICS, generate_packet(7, [0x00]), True)
         await asyncio.sleep(1)
 
 async def main(ble_address: str):
