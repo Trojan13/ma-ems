@@ -1,6 +1,6 @@
 from enum import Enum
 
-class EMSConnectionState(enum):
+class EMSConnectionState(Enum):
     BLE_STATE_CONNECT_NONE = 0
     BLE_STATE_CONNECT_CONNECTING = 1
     BLE_STATE_CONNECT_CONNECTED = 2

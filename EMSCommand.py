@@ -1,6 +1,6 @@
 from enum import Enum
 
-class EMSCommand(enum):
+class EMSCommand(Enum):
     INTENSITY_ADD = 1
     INTENSITY_CUT = 2
     INTENSITY_SET = 3
