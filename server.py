@@ -14,6 +14,7 @@ CHARACTERISTICS = "64668730-033f-9393-6ca2-0e9401adeb32"
 connected_ws = None
 logging.basicConfig(level=logging.INFO)
 
+
 def device_state_notify_handler(sender, data):
     device_state = DeviceState(list(data))
     logging.info("notify: {0}".format(list(data)))
@@ -31,20 +32,21 @@ async def get_device_info(client):
 
 async def main(websocket, ble_address: str):
     while True:
-        try:
-            logging.info("Trying to connect ble...")
-            device = await BleakScanner.find_device_by_address(ble_address, timeout=20.0)
-            if not device:
-                raise BleakError(
-                    f"A device with address {ble_address} could not be found.")
-            async with BleakClient(device) as client:
-                websocket.client = client  # attach client to websocket object
-                await client.start_notify(CHARACTERISTICS, device_state_notify_handler)
-                await get_device_info(client)
-        except BleakError as e:
-            logging.error(e)
-            # wait for 5 seconds before trying to reconnect
-            await asyncio.sleep(5)
+        if not websocket.client or not websocket.client.is_connected:
+            try:
+                logging.info("Trying to connect ble...")
+                device = await BleakScanner.find_device_by_address(ble_address, timeout=20.0)
+                if not device:
+                    raise BleakError(
+                        f"A device with address {ble_address} could not be found.")
+                async with BleakClient(device) as client:
+                    websocket.client = client  # attach client to websocket object
+                    await client.start_notify(CHARACTERISTICS, device_state_notify_handler)
+                    await get_device_info(client)
+            except BleakError as e:
+                logging.error(e)
+                # wait for 5 seconds before trying to reconnect
+                await asyncio.sleep(5)
 
 
 async def websocket_handler(websocket, path):
@@ -58,16 +60,16 @@ async def websocket_handler(websocket, path):
         msg_json = json.loads(msg)
         command = msg_json.get('command', None)
         if command == 'pause':
-            await websocket.client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.PROGRAM_PAUSE, []), True)
+            await websocket.client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.PROGRAM_PAUSE, [0x00]), True)
         elif command == 'add':
-            await websocket.client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.INTENSITY_ADD, []), True)
+            await websocket.client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.INTENSITY_ADD, [0x00]), True)
         elif command == 'cut':
-            await websocket.client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.INTENSITY_CUT, []), True)
+            await websocket.client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.INTENSITY_CUT, [0x00]), True)
         elif command == 'seti':
             intensity = int(msg_json.get('value', 0))
             await websocket.client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.INTENSITY_SET, [intensity]), True)
         elif validate_packet(msg):
-            await websocket.client.write_gatt_char(CHARACTERISTICS, list(map(int, msg.split(' '))), True)
+            await websocket.client.write_gatt_char(CHARACTERISTICS, msg, True)
         await asyncio.sleep(1)
 
 
