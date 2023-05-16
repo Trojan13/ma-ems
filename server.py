@@ -55,6 +55,7 @@ async def websocket_handler(websocket, path):
     logging.info("WS Client connected...")
     await connected_ws.put(websocket)
     while True:
+        logging.info("msg?")
         msg = await websocket.recv()
         logging.info(msg)
         msg_json = json.loads(msg)
