@@ -12,14 +12,11 @@ from EM70 import DeviceState, Command, ConnectionState, generate_packet, validat
 ADDRESS = "F9:8B:6F:12:EC:AE"
 CHARACTERISTICS = "64668730-033f-9393-6ca2-0e9401adeb32"
 connected_ws = None
-logging.basicConfig(level=logging.DEBUG)
-
+logging.basicConfig(level=logging.INFO)
 
 def device_state_notify_handler(sender, data):
     device_state = DeviceState(list(data))
-    logging.debug("notify: {0}".format(list(data)))
-    logging.debug(device_state)
-    logging.debug(device_state.get_json())
+    logging.info("notify: {0}".format(list(data)))
 
     # If there is a connected websocket, send the device state to it
     if connected_ws is not None:
@@ -28,14 +25,14 @@ def device_state_notify_handler(sender, data):
 
 async def get_device_info(client):
     while client.is_connected:
-        await client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.REQUEST_DEVICE_STATE, [0x00]), True)
+        await client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.DEVICE_STATE_READ, [0x00]), True)
         await asyncio.sleep(1)
 
 
 async def main(websocket, ble_address: str):
     while True:
         try:
-            logging.debug("Trying to connect ble...")
+            logging.info("Trying to connect ble...")
             device = await BleakScanner.find_device_by_address(ble_address, timeout=20.0)
             if not device:
                 raise BleakError(
@@ -51,13 +48,13 @@ async def main(websocket, ble_address: str):
 
 
 async def websocket_handler(websocket, path):
-    logging.debug("WS Client connected...")
+    logging.info("WS Client connected...")
     global connected_ws
     connected_ws = websocket
     await main(websocket, ADDRESS)  # pass websocket to main()
     while True:
         msg = await websocket.recv()
-        logging.debug(msg)
+        logging.info(msg)
         msg_json = json.loads(msg)
         command = msg_json.get('command', None)
         if command == 'pause':
@@ -75,7 +72,7 @@ async def websocket_handler(websocket, path):
 
 
 async def serve_websockets(loop):
-    logging.debug("Starting ws server...")
+    logging.info("Starting ws server...")
     server = await websockets.serve(websocket_handler, "localhost", 8765, loop=loop)
     await server.wait_closed()
 

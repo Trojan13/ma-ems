@@ -1,8 +1,7 @@
 import json
-from enum import Enum
 
 
-class ConnectionState(Enum):
+class ConnectionState():
     BLE_STATE_CONNECT_NONE = 0
     BLE_STATE_CONNECT_CONNECTING = 1
     BLE_STATE_CONNECT_CONNECTED = 2
@@ -10,7 +9,7 @@ class ConnectionState(Enum):
     BLE_STATE_CONNECT_DISCONNECTED = 4
 
 
-class Command(Enum):
+class Command():
     INTENSITY_ADD = 1
     INTENSITY_CUT = 2
     INTENSITY_SET = 3
