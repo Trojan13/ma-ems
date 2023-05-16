@@ -55,22 +55,31 @@ async def websocket_handler(websocket, path):
     logging.info("WS Client connected...")
     await connected_ws.put(websocket)
     while True:
-        logging.info("msg?")
         msg = await websocket.recv()
         logging.info(msg)
-        msg_json = json.loads(msg)
-        command = msg_json.get('command', None)
-        if command == 'pause':
-            await websocket.client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.PROGRAM_PAUSE, [0x00]), True)
-        elif command == 'add':
-            await websocket.client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.INTENSITY_ADD, [0x00]), True)
-        elif command == 'cut':
-            await websocket.client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.INTENSITY_CUT, [0x00]), True)
-        elif command == 'seti':
-            intensity = int(msg_json.get('value', 0))
-            await websocket.client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.INTENSITY_SET, [intensity]), True)
-        elif validate_packet(msg):
-            await websocket.client.write_gatt_char(CHARACTERISTICS, msg, True)
+        if msg:
+            if hasattr(websocket, 'client'):
+                if validate_packet(msg):
+                    await websocket.client.write_gatt_char(CHARACTERISTICS, msg, True)
+                else:
+                    try:
+                        msg_json = json.loads(msg)
+                        command = msg_json.get('command', None)
+                        if command == 'pause':
+                            await websocket.client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.PROGRAM_PAUSE, [0x00]), True)
+                        elif command == 'add':
+                            await websocket.client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.INTENSITY_ADD, [0x00]), True)
+                        elif command == 'cut':
+                            await websocket.client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.INTENSITY_CUT, [0x00]), True)
+                        elif command == 'seti':
+                            intensity = int(msg_json.get('value', 0))
+                            await websocket.client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.INTENSITY_SET, [intensity]), True)
+                    except Exception as e:
+                        await websocket.client.write_gatt_char(CHARACTERISTICS, msg, True)
+            else:
+                logging.info("BLE client not connected yet")
+        else:
+            logging.info("Received an empty message")
         await asyncio.sleep(1)
 
 
