@@ -11,17 +11,18 @@ from EM70 import DeviceState, Command, ConnectionState, generate_packet, validat
 
 ADDRESS = "F9:8B:6F:12:EC:AE"
 CHARACTERISTICS = "64668730-033f-9393-6ca2-0e9401adeb32"
-connected_ws = None
+connected_ws = asyncio.Queue()  # Update this line
 logging.basicConfig(level=logging.INFO)
 
 
-def device_state_notify_handler(sender, data):
+async def device_state_notify_handler(sender, data):
     device_state = DeviceState(list(data))
     logging.info("notify: {0}".format(list(data)))
 
     # If there is a connected websocket, send the device state to it
-    if connected_ws is not None:
-        asyncio.ensure_future(connected_ws.send(device_state.get_json()))
+    if not connected_ws.empty():
+        ws = await connected_ws.get()
+        asyncio.ensure_future(ws.send(device_state.get_json()))
 
 
 async def get_device_info(client):
@@ -30,8 +31,9 @@ async def get_device_info(client):
         await asyncio.sleep(1)
 
 
-async def main(websocket, ble_address: str):
+async def main(ble_address: str):
     while True:
+        websocket = await connected_ws.get()
         if not websocket.client or not websocket.client.is_connected:
             try:
                 logging.info("Trying to connect ble...")
@@ -51,9 +53,7 @@ async def main(websocket, ble_address: str):
 
 async def websocket_handler(websocket, path):
     logging.info("WS Client connected...")
-    global connected_ws
-    connected_ws = websocket
-    await main(websocket, ADDRESS)  # pass websocket to main()
+    await connected_ws.put(websocket)
     while True:
         msg = await websocket.recv()
         logging.info(msg)
@@ -78,11 +78,14 @@ async def serve_websockets(loop):
     server = await websockets.serve(websocket_handler, "localhost", 8765, loop=loop)
     await server.wait_closed()
 
+
 if __name__ == "__main__":
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
+    loop.create_task(main(ADDRESS))
+    loop.create_task(serve_websockets(loop=loop))
     try:
-        loop.run_until_complete(serve_websockets(loop=loop))
+        loop.run_forever()
     except KeyboardInterrupt:
         pass
     finally:
