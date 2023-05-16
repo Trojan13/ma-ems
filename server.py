@@ -1,52 +1,81 @@
 import asyncio
 import websockets
 import sys
+import logging
+import json
 
 from bleak import BleakClient, BleakScanner
 from bleak.exc import BleakError
-from BLEDeviceState import BLEDeviceState
-from generate_packet import generate_packet
+
+from EM70 import DeviceState, Command, ConnectionState, generate_packet, validate_packet
 
 ADDRESS = "F9:8B:6F:12:EC:AE"
 CHARACTERISTICS = "64668730-033f-9393-6ca2-0e9401adeb32"
-
 connected_ws = None
+logging.basicConfig(level=logging.DEBUG)
+
 
 def device_state_notify_handler(sender, data):
-    print("notify: {0}".format(list(data)))
-    device_state = BLEDeviceState(list(data))
-    print(device_state)
+    device_state = DeviceState(list(data))
+    logging.debug("notify: {0}".format(list(data)))
+    logging.debug(device_state)
+    logging.debug(device_state.get_json())
 
+    # If there is a connected websocket, send the device state to it
     if connected_ws is not None:
-        asyncio.ensure_future(connected_ws.send(str(device_state)))
+        asyncio.ensure_future(connected_ws.send(device_state.get_json()))
+
 
 async def get_device_info(client):
     while client.is_connected:
-        await client.write_gatt_char(CHARACTERISTICS, generate_packet(7, [0x00]), True)
+        await client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.REQUEST_DEVICE_STATE, [0x00]), True)
         await asyncio.sleep(1)
 
-async def main(ble_address: str):
-    print("Trying to connect ble...")
-    device = await BleakScanner.find_device_by_address(ble_address, timeout=20.0)
-    if not device:
-        raise BleakError(f"A device with address {ble_address} could not be found.")
-    async with BleakClient(device) as client:
-        await client.start_notify(CHARACTERISTICS, device_state_notify_handler)
-        await get_device_info(client)
+
+async def main(websocket, ble_address: str):
+    while True:
+        try:
+            logging.debug("Trying to connect ble...")
+            device = await BleakScanner.find_device_by_address(ble_address, timeout=20.0)
+            if not device:
+                raise BleakError(
+                    f"A device with address {ble_address} could not be found.")
+            async with BleakClient(device) as client:
+                websocket.client = client  # attach client to websocket object
+                await client.start_notify(CHARACTERISTICS, device_state_notify_handler)
+                await get_device_info(client)
+        except BleakError as e:
+            logging.error(e)
+            # wait for 5 seconds before trying to reconnect
+            await asyncio.sleep(5)
+
 
 async def websocket_handler(websocket, path):
-    print("WS Client connected...")
+    logging.debug("WS Client connected...")
     global connected_ws
     connected_ws = websocket
-    await main(ADDRESS)
+    await main(websocket, ADDRESS)  # pass websocket to main()
     while True:
         msg = await websocket.recv()
-        print(msg)
+        logging.debug(msg)
+        msg_json = json.loads(msg)
+        command = msg_json.get('command', None)
+        if command == 'pause':
+            await websocket.client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.PROGRAM_PAUSE, []), True)
+        elif command == 'add':
+            await websocket.client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.INTENSITY_ADD, []), True)
+        elif command == 'cut':
+            await websocket.client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.INTENSITY_CUT, []), True)
+        elif command == 'seti':
+            intensity = int(msg_json.get('value', 0))
+            await websocket.client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.INTENSITY_SET, [intensity]), True)
+        elif validate_packet(msg):
+            await websocket.client.write_gatt_char(CHARACTERISTICS, list(map(int, msg.split(' '))), True)
         await asyncio.sleep(1)
 
 
 async def serve_websockets(loop):
-    print("Starting ws server...")
+    logging.debug("Starting ws server...")
     server = await websockets.serve(websocket_handler, "localhost", 8765, loop=loop)
     await server.wait_closed()
 
