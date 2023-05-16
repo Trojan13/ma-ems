@@ -32,7 +32,7 @@ async def get_device_info(client):
 
 async def main(websocket, ble_address: str):
     while True:
-        if not websocket.client or not websocket.client.is_connected:
+        if not hasattr(websocket, 'client') or not websocket.client.is_connected:
             try:
                 logging.info("Trying to connect ble...")
                 device = await BleakScanner.find_device_by_address(ble_address, timeout=20.0)
@@ -54,7 +54,9 @@ async def websocket_handler(websocket, path):
     global connected_ws
     connected_ws = websocket
     await main(websocket, ADDRESS)  # pass websocket to main()
+    logging.info("kek")
     while True:
+        logging.info("msg?")
         msg = await websocket.recv()
         logging.info(msg)
         msg_json = json.loads(msg)
