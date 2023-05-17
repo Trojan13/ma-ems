@@ -33,18 +33,18 @@ const hexPacket = computed(() => {
 })
 
 function onClickPlus() {
-  $ws.send('5a 05 01 00 00 00 60')
-  emsCommandsStore.sendCommand('5a 05 01 00 00 00 60')
+  $ws.send('5a 05 01 00 00 60')
+  emsCommandsStore.sendCommand('5a 05 01 00 00 60')
 }
 
 function onClickMinus() {
-  $ws.send('5a 05 02 00 00 00 60')
-  emsCommandsStore.sendCommand('5a 05 02 00 00 00 60')
+  $ws.send('5a 05 02 00 00 61')
+  emsCommandsStore.sendCommand('5a 05 02 00 00 61')
 }
 
 function onClickSetIntensity() {
-  $ws.send(`5a 05 13 00 ${intensitySet.value} 00 60`)
-  emsCommandsStore.sendCommand(`5a 05 13 00 ${intensitySet.value} 00 60`)
+  $ws.send(`5a 05 13 00 ${intensitySet.value} 60`)
+  emsCommandsStore.sendCommand(`5a 05 13 00 ${intensitySet.value} 60`)
 }
 </script>
 

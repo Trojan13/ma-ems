@@ -18,20 +18,17 @@ const commandByteCustom = ref<number>(0x00)
 const commandByteToggle = ref<boolean>(false)
 
 const checksumbytes = computed(() => {
-  return generatePacket(
-    startByte.value,
-    lengthByte.value,
-    commandByteToggle.value ? commandByteCustom.value : commandByte.value,
-    [infoByte1.value, infoByte2.value]
-  )
+  return generatePacket(startByte.value, lengthByte.value, commandByteCustom.value, [
+    infoByte1.value
+  ])
 })
 
 const hexPacket = computed(() => {
   return generateHexPacket(
     startByte.value,
     lengthByte.value,
-    commandByteToggle.value ? commandByteCustom.value : commandByte.value,
-    [infoByte1.value, infoByte2.value],
+    commandByteCustom.value,
+    [infoByte1.value],
     checksumbytes.value
   )
 })
@@ -48,7 +45,7 @@ function onClickSend() {
     <div class="command-inputs">
       <label for="startbyte"
         >Start:
-        <input name="infobyte" type="text" disabled v-model="startByte" />
+        <input name="startByte" type="text" disabled v-model="startByte" />
       </label>
       <label for="lengthbyte"
         >Length:
@@ -70,7 +67,7 @@ function onClickSend() {
       </label>
       <label for="infobyte2"
         >Info 2:
-        <input name="infobyte2" type="text" v-model="infoByte2" />
+        <input name="infobyte2" type="text" v-model="infoByte2" disabled />
       </label>
       <label for="checksumbyte1"
         >Checksum:

@@ -66,10 +66,9 @@ async def websocket_handler(websocket, path):
         msg = await websocket.recv()
 
         if ble_client and ble_client.is_connected:
-            print(msg)
-            print(validate_packet(msg))
             if validate_packet(msg):
-                await ble_client.write_gatt_char(CHARACTERISTICS, bytes.fromhex(msg), True)
+                print(bytearray(int(x, 16) for x in msg.split()))
+                await ble_client.write_gatt_char(CHARACTERISTICS, bytearray(int(x, 16) for x in msg.split()), True)
             else:
                 try:
                     msg_json = json.loads(msg)
