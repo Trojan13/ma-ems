@@ -87,17 +87,17 @@ async def websocket_handler(websocket, path):
 
 async def main():
     while True:
-        if not ble_client or not ble_client.is_connected:
+        if not ws_client or not ws_client.open:
             try:
-                await connect_ble(ADDRESS)
-                asyncio.create_task(get_device_info(ble_client))
+                await connect_ws(loop=asyncio.get_event_loop())
             except Exception as e:
                 logging.error(e)
                 await asyncio.sleep(5)
 
-        if not ws_client or not ws_client.open:
+        if not ble_client or not ble_client.is_connected:
             try:
-                await connect_ws(loop=asyncio.get_event_loop())
+                await connect_ble(ADDRESS)
+                asyncio.create_task(get_device_info(ble_client))
             except Exception as e:
                 logging.error(e)
                 await asyncio.sleep(5)
