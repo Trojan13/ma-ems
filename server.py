@@ -59,6 +59,10 @@ async def websocket_handler(websocket, path):
     logging.info("WS Client connected...")
 
     while True:
+        if not ws_client.open:
+            logging.info("WS Client disconnected...")
+            break
+
         msg = await websocket.recv()
 
         if ble_client and ble_client.is_connected:
@@ -89,7 +93,7 @@ async def websocket_handler(websocket, path):
 
 async def main():
     while True:
-        if not ws_server or not ws_client or not ws_client.open:
+        if not ws_server:
             try:
                 await connect_ws()
             except Exception as e:
