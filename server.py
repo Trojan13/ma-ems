@@ -66,6 +66,8 @@ async def websocket_handler(websocket, path):
         msg = await websocket.recv()
 
         if ble_client and ble_client.is_connected:
+            print(msg)
+            print(validate_packet(msg))
             if validate_packet(msg):
                 await ble_client.write_gatt_char(CHARACTERISTICS, bytes.fromhex(msg), True)
             else:

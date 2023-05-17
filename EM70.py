@@ -134,22 +134,35 @@ def generate_packet(command_byte, info_bytes, debug=False):
 
 
 def validate_packet(packet: str) -> bool:
-    # Split the packet into bytes
-    bytes_list = packet.split(" ")
+    # Convert the packet into bytes
+    packet_bytes = bytes.fromhex(packet)
 
-    # Check if the packet starts with "5A"
-    if bytes_list[0] != "5A":
+    # Check if the packet starts with 0x5A
+    if packet_bytes[0] != 0x5A:
+        print("Packet does not start with 0x5A")
         return False
 
     # Check if the packet has a minimum length of 6 bytes
-    if len(bytes_list) < 6:
+    if len(packet_bytes) < 6:
+        print("Packet is too short")
         return False
 
     # Check if the length byte matches the number of info bytes
-    length_byte = int(bytes_list[1], 16)
+    length_byte = packet_bytes[1]
     # Exclude start byte, length byte, command byte, and two checksum bytes
-    info_bytes = bytes_list[3:-2]
+    info_bytes = packet_bytes[3:-2]
     if length_byte != len(info_bytes):
+        print("Length byte does not match number of info bytes")
+        return False
+
+    # Check the checksum
+    checksum_bytes = packet_bytes[-2:]
+    # Calculate the checksum over all bytes except the start byte and checksum bytes
+    checksum_calculated = sum(packet_bytes[1:-2]) & 0xFF
+    # Convert the two checksum bytes to an integer
+    checksum_received = (checksum_bytes[0] << 8) | checksum_bytes[1]
+    if checksum_calculated != checksum_received:
+        print("Checksum does not match")
         return False
 
     # If all checks pass, the packet is valid
