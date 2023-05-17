@@ -12,7 +12,8 @@ from EM70 import DeviceState, Command, ConnectionState, generate_packet, validat
 ADDRESS = "F9:8B:6F:12:EC:AE"
 CHARACTERISTICS = "64668730-033f-9393-6ca2-0e9401adeb32"
 ble_client = None  # Global BLE client
-ws_client = None  # WebSocket client
+ws_client = None  # Global WebSocket client
+ws_server = None  # Global WebSocket server
 
 logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',
                     datefmt='%d-%m-%Y %H:%M:%S',
@@ -46,15 +47,16 @@ async def connect_ble(ble_address: str):
     await ble_client.start_notify(CHARACTERISTICS, device_state_notify_handler)
 
 
-async def connect_ws(loop):
+async def connect_ws():
+    global ws_server
     logging.info("Starting WS server...")
-    await websockets.serve(websocket_handler, "localhost", 8765, loop=loop)
+    ws_server = await websockets.serve(websocket_handler, "localhost", 8765)
 
 
 async def websocket_handler(websocket, path):
     global ws_client
-    logging.info("WS Client connected...")
     ws_client = websocket
+    logging.info("WS Client connected...")
 
     while True:
         msg = await websocket.recv()
@@ -87,9 +89,9 @@ async def websocket_handler(websocket, path):
 
 async def main():
     while True:
-        if not ws_client or not ws_client.open:
+        if not ws_server or not ws_client or not ws_client.open:
             try:
-                await connect_ws(loop=asyncio.get_event_loop())
+                await connect_ws()
             except Exception as e:
                 logging.error(e)
                 await asyncio.sleep(5)
