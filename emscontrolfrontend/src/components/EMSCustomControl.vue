@@ -17,7 +17,6 @@ const commandByteCustom = ref<number>(0x00);
 
 const commandByteToggle = ref<boolean>(false);
 
-console.log(EMSCommand);
 const commandByte = computed(() => {
   return commandByteToggle.value ? commandByteSelect.value : commandByteCustom.value;
 });
@@ -65,7 +64,14 @@ function onClickSend() {
           name="commandbyte"
           id="commandbyte"
         >
-          <option v-for="cmd in EMSCommand" :value="EMSCommand[cmd]">{{ cmd }}</option>
+          <option
+            v-for="cmd in Object.fromEntries(
+              Object.entries(EMSCommand).filter(([key]) => !isNaN(Number(key)))
+            )"
+            :value="EMSCommand[cmd]"
+          >
+            {{ cmd }}
+          </option>
         </select>
         <input v-else name="infobyte1" type="text" v-model="commandByteCustom" />
       </label>
