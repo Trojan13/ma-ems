@@ -43,10 +43,20 @@ const webSocketState = computed(() => {
     ? 'CLOSED'
     : 'UNKNOWN';
 });
+
+const bleState = computed(() => {
+  return 'UNKNOWN';
+});
 </script>
 
 <template>
   <div id="status-bar">
+    <div class="status-field">
+      <label >WS State:</label>
+      <span>{{ webSocketState }}</span>
+      <label>BLE State:</label>
+      <span>{{ bleState }}</span>
+    </div>
     <div class="status-field">
       <label for="program">Program:</label>
       <input disabled id="program" type="number" v-model="program" />
@@ -106,6 +116,7 @@ const webSocketState = computed(() => {
   border: #fff solid 1px;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 1rem;
   padding: 1rem;
   border-radius: 8px;
 }
