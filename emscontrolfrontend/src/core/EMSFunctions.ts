@@ -6,7 +6,7 @@ export function generatePacket(
 ): number[] {
   let checksumCalc = startByte + (lengthByte & 255) + (commandByte & 255)
 
-  for (let byte of infoBytes) {
+  for (const byte of infoBytes) {
     checksumCalc += byte & 255
   }
 

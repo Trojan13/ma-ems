@@ -105,12 +105,12 @@ export class BLEDeviceState {
       return false
     }
     let checksum_calc = this.startByte + this.lengthByte + this.commandByte
-    for (let b of arr) {
+    for (const b of arr) {
       checksum_calc += b
     }
 
-    let checksum_calc_byte1 = (checksum_calc >> 8) & 0xff
-    let checksum_calc_byte2 = checksum_calc & 0xff
+    const checksum_calc_byte1 = (checksum_calc >> 8) & 0xff
+    const checksum_calc_byte2 = checksum_calc & 0xff
 
     if (
       checksum_calc_byte1 !== this.checksumByte[0] &&

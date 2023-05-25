@@ -1,41 +1,44 @@
 <script setup lang="ts">
-import { ref, inject, computed } from 'vue'
-import { EMSCommand } from '@/core/EMSConstants'
-import { generatePacket, generateHexPacket } from '@/core/EMSFunctions'
-import { useEMSCommandsStore } from '@/stores/EMSCommands'
-const $ws = inject('$ws') as WebSocket
+import { ref, inject, computed } from 'vue';
+import { EMSCommand } from '@/core/EMSConstants';
+import { generatePacket, generateHexPacket } from '@/core/EMSFunctions';
+import { useEMSCommandsStore } from '@/stores/EMSCommands';
+const $ws = inject('$ws') as WebSocket;
 
-const emsCommandsStore = useEMSCommandsStore()
+const emsCommandsStore = useEMSCommandsStore();
 
-const startByte = ref<number>(0x5a)
-const lengthByte = ref<number>(0x05)
+const startByte = ref<number>(0x5a);
+const lengthByte = ref<number>(0x05);
 
-const infoByte1 = ref<number>(0x00)
-const infoByte2 = ref<number>(0x00)
-const commandByte = ref<number>(0x01)
-const commandByteCustom = ref<number>(0x00)
+const infoByte1 = ref<number>(0x00);
+const infoByte2 = ref<number>(0x00);
+const commandByteSelect = ref<number>(0x01);
+const commandByteCustom = ref<number>(0x00);
 
-const commandByteToggle = ref<boolean>(false)
+const commandByteToggle = ref<boolean>(false);
+
+console.log(EMSCommand);
+const commandByte = computed(() => {
+  return commandByteToggle.value ? commandByteSelect.value : commandByteCustom.value;
+});
 
 const checksumbytes = computed(() => {
-  return generatePacket(startByte.value, lengthByte.value, commandByteCustom.value, [
-    infoByte1.value
-  ])
-})
+  return generatePacket(startByte.value, lengthByte.value, commandByte.value, [infoByte1.value]);
+});
 
 const hexPacket = computed(() => {
   return generateHexPacket(
     startByte.value,
     lengthByte.value,
-    commandByteCustom.value,
+    commandByte.value,
     [infoByte1.value],
     checksumbytes.value
-  )
-})
+  );
+});
 
 function onClickSend() {
-  $ws.send(hexPacket.value)
-  emsCommandsStore.sendCommand(hexPacket.value)
+  $ws.send(hexPacket.value);
+  emsCommandsStore.sendCommand(hexPacket.value);
 }
 </script>
 
@@ -56,7 +59,12 @@ function onClickSend() {
           CMD:
           <input v-model="commandByteToggle" type="checkbox" role="switch" id="commandbytetoggle" />
         </span>
-        <select v-if="commandByteToggle" v-model="commandByte" name="commandbyte" id="commandbyte">
+        <select
+          v-if="commandByteToggle"
+          v-model="commandByteSelect"
+          name="commandbyte"
+          id="commandbyte"
+        >
           <option v-for="cmd in EMSCommand" :value="EMSCommand[cmd]">{{ cmd }}</option>
         </select>
         <input v-else name="infobyte1" type="text" v-model="commandByteCustom" />

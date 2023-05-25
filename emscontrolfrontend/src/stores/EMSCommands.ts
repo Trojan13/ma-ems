@@ -1,5 +1,4 @@
-import { defineStore } from 'pinia'
-
+import { defineStore } from 'pinia';
 
 export const useEMSCommandsStore = defineStore('emscommands', {
   state: () => ({
@@ -9,7 +8,7 @@ export const useEMSCommandsStore = defineStore('emscommands', {
 
   actions: {
     sendCommand(command: string) {
-      this.commands_history.push(command)
+      this.commands_history.push(command);
     }
   }
-})
+});
