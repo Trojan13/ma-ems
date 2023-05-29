@@ -7,7 +7,7 @@ import json
 from bleak import BleakClient, BleakScanner
 from bleak.exc import BleakError
 
-from EM70 import DeviceState, Command, ConnectionState, generate_packet, validate_packet
+from EM70 import DeviceState, Command, generate_packet, validate_packet
 
 ADDRESS = "F9:8B:6F:12:EC:AE"
 CHARACTERISTICS = "64668730-033f-9393-6ca2-0e9401adeb32"
