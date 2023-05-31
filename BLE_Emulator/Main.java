@@ -1,7 +1,10 @@
 
 
 import BleBeans.BaseBean;
+import BleBeans.IntensityLockBean;
 import BleBeans.IntensityNotiseBean;
+import BleBeans.IntensitySetBean;
+
 import java.util.Arrays;
 
 //BaseBean baseBean2 = new BaseBean(data);
@@ -18,6 +21,8 @@ public class Main {
 
         IntensityNotiseBean testIntensityNotiseBean = new IntensityNotiseBean(bArr);
         System.out.println(testIntensityNotiseBean.getIntensity());
+        new IntensityLockBean(true).printAllByte();
+        new IntensitySetBean(5).printAllByte();
 
         // create a BleBeans.BaseBean object with a byte array
         byte[] data = {42, 7, 2, 1, 2, 3, 4, -6, -1};
