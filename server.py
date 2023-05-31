@@ -80,8 +80,15 @@ async def websocket_handler(websocket, path):
                     elif command == 'cut':
                         await ble_client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.INTENSITY_CUT, [0x00]), True)
                     elif command == 'seti':
-                        intensity = int(msg_json.get('value', 0))
-                        await ble_client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.INTENSITY_SET, [intensity]), True)
+                        intensity = msg_json.get('value', 0)
+                        logging.info(intensity)
+                        if intensity > 0:
+                            intensity -= 1
+                        intensity_bytearray = [hex(byte)
+                                               for byte in bytearray(intensity)]
+                        await ble_client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.INTENSITY_SET, intensity_bytearray), True)
+                        await asyncio.sleep(.5)
+                        await ble_client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.INTENSITY_ADD, [0x00]), True)
                 except Exception as e:
                     logging.error(e)
         else:

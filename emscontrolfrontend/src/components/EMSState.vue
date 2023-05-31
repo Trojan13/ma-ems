@@ -9,39 +9,18 @@ const intensity = ref(0);
 const curetime = ref('');
 const battery = ref(0);
 const cureState = ref('');
-const cureTimeSecond = ref(0);
 const intensityLock = ref(false);
 
 console.log('Loaded...');
 $ws.addEventListener('message', function (event) {
-  console.log('nsg...');
-
   // try to parse the message to json and set the refs to the values
-  /*
-   {
-    "battery": 63,
-    "checksumByte": 251,
-    "commandByte": 7,
-    "cureState": 46,
-    "cureTimeMinute": 29,
-    "cureTimeSecound": 60,
-    "electricOverLoad": false,
-    "intensity": 1,
-    "intensityLock": true,
-    "lengthByte": 12,
-    "mode": 1,
-    "program": 1,
-    "startByte": 90
-}
-
-*/
   try {
     const data = JSON.parse(event.data);
     console.log(data);
     program.value = data.program;
     electricOverload.value = data.electricOverload;
     mode.value = data.mode;
-    intensity.value = data.intensity * 10;
+    intensity.value = (data.intensity * 100) / 15;
     curetime.value = `${data.cureTimeMinute}:${data.cureTimeSecound}`;
     battery.value = data.battery;
     cureState.value = data.cureState;
