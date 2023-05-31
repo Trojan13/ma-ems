@@ -84,8 +84,7 @@ async def websocket_handler(websocket, path):
                         logging.info(intensity)
                         if intensity > 0:
                             intensity -= 1
-                        intensity_bytearray = [hex(byte)
-                                               for byte in bytearray(intensity)]
+                        intensity_bytearray = bytearray([intensity])
                         await ble_client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.INTENSITY_SET, intensity_bytearray), True)
                         await asyncio.sleep(.5)
                         await ble_client.write_gatt_char(CHARACTERISTICS, generate_packet(Command.INTENSITY_ADD, [0x00]), True)
