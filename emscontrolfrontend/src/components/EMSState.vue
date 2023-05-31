@@ -6,7 +6,7 @@ const program = ref(0);
 const electricOverload = ref(false);
 const mode = ref('');
 const intensity = ref(0);
-const curtime = ref('');
+const curetime = ref('');
 const battery = ref(0);
 const cureState = ref('');
 const cureTimeSecond = ref(0);
@@ -41,11 +41,10 @@ $ws.addEventListener('message', function (event) {
     program.value = data.program;
     electricOverload.value = data.electricOverload;
     mode.value = data.mode;
-    intensity.value = data.intensity * 100;
-    curtime.value = data.curtime;
+    intensity.value = data.intensity * 10;
+    curetime.value = `${data.cureTimeMinute}:${data.cureTimeSecound}`;
     battery.value = data.battery;
     cureState.value = data.cureState;
-    cureTimeSecond.value = data.cureTimeSecond;
     intensityLock.value = data.intensityLock;
   } catch (error) {
     console.error(error);
@@ -100,8 +99,8 @@ const bleState = computed(() => {
       ></progress>
     </div>
     <div class="status-field">
-      <label for="curtime">Current Time:</label>
-      <input disabled id="curtime" type="time" v-model="curtime" />
+      <label for="curetime">Current Time:</label>
+      <input disabled id="curetime" type="text" v-model="curetime" />
     </div>
     <div class="status-field">
       <label for="battery">Battery:</label>
@@ -116,10 +115,6 @@ const bleState = computed(() => {
     <div class="status-field">
       <label for="cureState">Cure State:</label>
       <input disabled id="cureState" type="text" v-model="cureState" />
-    </div>
-    <div class="status-field">
-      <label for="cureTimeSecond">Cure Time Second:</label>
-      <input disabled id="cureTimeSecond" type="number" v-model="cureTimeSecond" />
     </div>
     <div class="status-field">
       <label for="intensityLock">Intensity Lock:</label>

@@ -4,15 +4,15 @@ export function generatePacket(
   commandByte: number,
   infoBytes: number[]
 ): number[] {
-  let checksumCalc = startByte + (lengthByte & 255) + (commandByte & 255)
+  let checksumCalc = startByte + (lengthByte & 255) + (commandByte & 255);
 
   for (const byte of infoBytes) {
-    checksumCalc += byte & 255
+    checksumCalc += byte & 255;
   }
 
-  const checksumBytes = [(checksumCalc >> 8) & 0xff, checksumCalc & 0xff]
+  const checksumBytes = [(checksumCalc >> 8) & 0xff, checksumCalc & 0xff];
 
-  return checksumBytes
+  return checksumBytes;
 }
 
 export function generateHexPacket(
@@ -22,6 +22,7 @@ export function generateHexPacket(
   infoBytes: number[],
   checksumBytes: number[]
 ): string {
-  const packet = [startByte, lengthByte, commandByte, ...infoBytes, ...checksumBytes]
-  return packet.map((byte) => byte.toString(16).padStart(2, '0')).join(' ')
+  const packet = [startByte, lengthByte, commandByte, ...infoBytes, ...checksumBytes];
+  console.log(packet);
+  return packet.map((byte) => Number(byte).toString(16).padStart(2, '0')).join(' ');
 }

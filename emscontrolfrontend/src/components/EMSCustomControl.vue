@@ -76,25 +76,25 @@ function onClickSend() {
         <input v-else name="infobyte1" type="text" v-model="commandByteCustom" />
       </label>
       <label for="infobyte1"
-        >Info 1:
+        >Info [0]:
         <input name="infobyte1" type="text" v-model="infoByte1" />
       </label>
       <label for="infobyte2"
-        >Info 2:
+        >Info [1]:
         <input name="infobyte2" type="text" v-model="infoByte2" disabled />
       </label>
       <label for="checksumbyte1"
-        >Checksum:
+        >Checksum [0]:
         <input name="checksumbyte1" type="text" disabled :value="checksumbytes[0]" />
       </label>
       <label for="checksumbyte2"
-        >Checksum:
+        >Checksum [1]:
         <input name="checksumbyte2" type="text" disabled :value="checksumbytes[1]" />
       </label>
     </div>
     <label for="decimalpacket"
       >HEX Packet:
-      <input name="decimalpacket" type="text" disabled v-model="hexPacket" />
+      <input name="decimalpacket" type="text" v-model="hexPacket" />
     </label>
     <button @click="onClickSend">Send</button>
   </div>
