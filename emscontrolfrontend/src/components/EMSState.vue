@@ -12,14 +12,36 @@ const cureState = ref('');
 const cureTimeSecond = ref(0);
 const intensityLock = ref(false);
 
-$ws.onmessage = function (event) {
+console.log('Loaded...');
+$ws.addEventListener('message', function (event) {
+  console.log('nsg...');
+
   // try to parse the message to json and set the refs to the values
+  /*
+   {
+    "battery": 63,
+    "checksumByte": 251,
+    "commandByte": 7,
+    "cureState": 46,
+    "cureTimeMinute": 29,
+    "cureTimeSecound": 60,
+    "electricOverLoad": false,
+    "intensity": 1,
+    "intensityLock": true,
+    "lengthByte": 12,
+    "mode": 1,
+    "program": 1,
+    "startByte": 90
+}
+
+*/
   try {
     const data = JSON.parse(event.data);
+    console.log(data);
     program.value = data.program;
     electricOverload.value = data.electricOverload;
     mode.value = data.mode;
-    intensity.value = data.intensity;
+    intensity.value = data.intensity * 100;
     curtime.value = data.curtime;
     battery.value = data.battery;
     cureState.value = data.cureState;
@@ -27,10 +49,8 @@ $ws.onmessage = function (event) {
     intensityLock.value = data.intensityLock;
   } catch (error) {
     console.error(error);
-  } finally {
-    console.log(event.data);
   }
-};
+});
 
 const webSocketState = computed(() => {
   return $ws.readyState == 1
@@ -52,7 +72,7 @@ const bleState = computed(() => {
 <template>
   <div id="status-bar">
     <div class="status-field">
-      <label >WS State:</label>
+      <label>WS State:</label>
       <span>{{ webSocketState }}</span>
       <label>BLE State:</label>
       <span>{{ bleState }}</span>
