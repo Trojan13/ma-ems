@@ -1,0 +1,20 @@
+.round {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1px;
+    padding: 1px;
+    border: 1px solid black;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border: 1px solid black;
+    color: white;
+    font-size: 10px;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
