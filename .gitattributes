@@ -1,0 +1,2 @@
+RemoteAssistanceAR/Library/ArtifactDB filter=lfs diff=lfs merge=lfs -text
+RemoteAssistanceAR/Library/ArtifactDB filter=lfs diff=lfs merge=lfs -text
