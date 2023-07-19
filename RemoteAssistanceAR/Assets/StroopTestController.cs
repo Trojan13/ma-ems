@@ -45,9 +45,10 @@ public class StroopTestController : MonoBehaviour
     private int currentTestItemIndex = 0;
     private int correctCount = 0;
     private float tmpReactionTime;
-    private float tmpTimeInZoneHigh;
-    private float tmpTimeInZoneLow;
     private bool isButtonPressed = false;
+
+    private bool isInHighZone = false;
+    private bool isInLowZone = false;
 
     [Header("Dependent Variables")]
     [SerializeField]
@@ -111,9 +112,16 @@ public class StroopTestController : MonoBehaviour
             timerText.text = string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliseconds);
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (state == TestState.Playing)
         {
-            StartCoroutine(stroopTestFeedback.Correct());
+            if (isInLowZone)
+            {
+                timeInZoneLow += Time.deltaTime;
+            }
+            else if (isInHighZone)
+            {
+                timeInZoneHigh += Time.deltaTime;
+            }
         }
     }
 
@@ -330,11 +338,11 @@ public class StroopTestController : MonoBehaviour
         // Use the timer to measure the time in the zone
         if (isInnerZone)
         {
-            tmpTimeInZoneLow = Time.time;
+            isInLowZone = true;
         }
         else
         {
-            tmpTimeInZoneHigh = Time.time;
+            isInHighZone = true;
         }
         // Enable EMS
         if (currentCondition == Conditions.EMS || currentCondition == Conditions.EMSVisual)
@@ -359,11 +367,11 @@ public class StroopTestController : MonoBehaviour
         // Use the timer to measure the time in the zone
         if (isInnerZone)
         {
-            timeInZoneHigh = timeInZoneHigh + (Time.time - tmpTimeInZoneHigh);
+            isInLowZone = false;
         }
         else
         {
-            timeInZoneLow = timeInZoneLow + (Time.time - tmpTimeInZoneLow);
+            isInHighZone = false;
         }
         // Disable EMS
         if (currentCondition == Conditions.EMS || currentCondition == Conditions.EMSVisual)

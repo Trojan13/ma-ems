@@ -51,7 +51,7 @@ namespace MetaAdvancedFeatures.SceneUnderstanding
                 Debug.Log(allTables[0]);
 
                 Vector3 tableCenter = allTables[0].transform.position;
-                Vector3 tableSize = allTables[0].GetComponent<MeshFilter>().mesh.bounds.size;
+                Vector3 tableSize = allTables[0].transform.localScale;
 
                 // Adjusting the position to place MyTestSetupTransform on top of the table, considering its size
                 tableCenter.y += tableSize.y / 2;
