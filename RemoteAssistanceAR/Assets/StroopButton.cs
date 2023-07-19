@@ -27,6 +27,9 @@ public class StroopButton : MonoBehaviour
     [SerializeField]
     private BoxCollider OuterZone;
 
+    [SerializeField]
+    private StroopTestController stroopTestController;
+
     private bool isCorrect;
 
     // Start is called before the first frame update
@@ -81,7 +84,7 @@ public class StroopButton : MonoBehaviour
 
     public void OnShowVisualWarningTriggerEnter(bool isInnerZone)
     {
-        if (isCorrect)
+        if (isCorrect || stroopTestController.state != StroopTestController.TestState.Playing)
         {
             return;
         }

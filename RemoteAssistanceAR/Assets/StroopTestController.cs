@@ -4,6 +4,7 @@ using System.IO;
 
 using System.Collections;
 using TMPro;
+using System.Globalization;
 
 public class StroopTestController : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class StroopTestController : MonoBehaviour
     private StroopButton[] stroopButtons;
 
     [SerializeField]
-    private TextMeshPro startButtonText;
+    private GameObject startButton;
 
     [SerializeField]
     private TextMeshPro timerText;
@@ -40,7 +41,7 @@ public class StroopTestController : MonoBehaviour
 
     private StroopTestSequenceLoader currentStroopTestSequence;
 
-    private TestState state = TestState.Idle;
+    public TestState state = TestState.Idle;
     private int currentTestItemIndex = 0;
     private int correctCount = 0;
     private float tmpReactionTime;
@@ -51,6 +52,9 @@ public class StroopTestController : MonoBehaviour
     [Header("Dependent Variables")]
     [SerializeField]
     private string subjectID;
+
+    [SerializeField]
+    private string nickname;
 
     private int errorCount = 0;
     private float totalTime;
@@ -113,26 +117,11 @@ public class StroopTestController : MonoBehaviour
         }
     }
 
-    public void StartTest()
-    {
-        switch (state)
-        {
-            case TestState.Idle:
-                BeginTest();
-                break;
-            case TestState.Playing:
-                PauseTest();
-                break;
-            case TestState.Pause:
-                ResumeTest();
-                break;
-        }
-    }
-
-    private void BeginTest()
+    private void StartTest()
     {
         state = TestState.Playing;
-        startButtonText.text = "Pause";
+        // Hide startbutton
+        startButton.SetActive(false);
 
         timer.ResetTimer();
         timer.StartTiming();
@@ -141,26 +130,6 @@ public class StroopTestController : MonoBehaviour
         StartCoroutine(ExecuteSequence());
 
         Debug.Log("Test started. Total time: " + timer.TimePassed);
-    }
-
-    private void PauseTest()
-    {
-        startButtonText.text = "Resume";
-        timer.StopTiming();
-        state = TestState.Pause;
-        SetButtonsEnabled(false);
-
-        Debug.Log("Test paused. Total time: " + timer.TimePassed);
-    }
-
-    private void ResumeTest()
-    {
-        startButtonText.text = "Pause";
-        timer.StartTiming();
-        state = TestState.Playing;
-        SetButtonsEnabled(true);
-
-        Debug.Log("Test resumed. Total time: " + timer.TimePassed);
     }
 
     public void EndTest()
@@ -174,11 +143,12 @@ public class StroopTestController : MonoBehaviour
         averageTimeReactionTime = averageTimeReactionTime / (correctCount + errorCount);
 
         state = TestState.Idle;
-        startButtonText.text = "Start";
+
         SetButtonsEnabled(false);
 
         WriteDataToFile(
             subjectID,
+            nickname,
             currentCondition.ToString(),
             errorCount,
             correctCount,
@@ -214,7 +184,7 @@ public class StroopTestController : MonoBehaviour
 
             // Show the correct color name
             PlayColorSound(currendRound.outputColor);
-            tmpReactionTime = Time.time * 1000; // Store the current time
+            tmpReactionTime = Time.time; // Store the current time
 
             // Wait for a button press
             isButtonPressed = false;
@@ -230,7 +200,7 @@ public class StroopTestController : MonoBehaviour
         if (state == TestState.Playing)
         {
             // Calculate reaction time and store it
-            averageTimeReactionTime += (Time.time * 1000 - tmpReactionTime);
+            averageTimeReactionTime += (Time.time - tmpReactionTime);
             int pressedButtonIndex = System.Array.IndexOf(stroopButtons, button);
 
             StroopTestButton clickedButtonFromRound = currentStroopTestSequence.GetButton(
@@ -311,6 +281,7 @@ public class StroopTestController : MonoBehaviour
 
     public void WriteDataToFile(
         string subjectID,
+        string nickname,
         string currentCondition,
         int errorCount,
         int correctCount,
@@ -326,11 +297,14 @@ public class StroopTestController : MonoBehaviour
         if (!File.Exists(filePath))
         {
             string header =
-                "SubjectID,Condition,ErrorCount,CorrectCount,TotalTime,AvgReactionTime,TimeInZoneHigh,TimeInZoneLow\n";
+                "SubjectID,nickname,Condition,ErrorCount,CorrectCount,TotalTime,AvgReactionTime,TimeInZoneHigh,TimeInZoneLow\n";
             File.WriteAllText(filePath, header);
         }
+        // Set up a CultureInfo which uses '.' as the decimal separator
+        CultureInfo cultureInfo = new CultureInfo("en-US");
+
         string data =
-            $"{subjectID},{currentCondition},{errorCount},{correctCount},{totalTime},{avgReactionTime},{timeInZoneHigh},{timeInZoneLow}\n";
+            $"{subjectID},{nickname},{currentCondition},{errorCount},{correctCount},{totalTime.ToString(cultureInfo)},{avgReactionTime.ToString(cultureInfo)},{timeInZoneHigh.ToString(cultureInfo)},{timeInZoneLow.ToString(cultureInfo)}\n";
         File.AppendAllText(filePath, data);
     }
 
@@ -356,11 +330,11 @@ public class StroopTestController : MonoBehaviour
         // Use the timer to measure the time in the zone
         if (isInnerZone)
         {
-            tmpTimeInZoneLow = Time.time * 1000;
+            tmpTimeInZoneLow = Time.time;
         }
         else
         {
-            tmpTimeInZoneHigh = Time.time * 1000;
+            tmpTimeInZoneHigh = Time.time;
         }
         // Enable EMS
         if (currentCondition == Conditions.EMS || currentCondition == Conditions.EMSVisual)
@@ -385,11 +359,11 @@ public class StroopTestController : MonoBehaviour
         // Use the timer to measure the time in the zone
         if (isInnerZone)
         {
-            timeInZoneHigh = timeInZoneHigh + (Time.time - tmpTimeInZoneHigh) * 1000;
+            timeInZoneHigh = timeInZoneHigh + (Time.time - tmpTimeInZoneHigh);
         }
         else
         {
-            timeInZoneLow = timeInZoneLow + (Time.time - tmpTimeInZoneLow) * 1000;
+            timeInZoneLow = timeInZoneLow + (Time.time - tmpTimeInZoneLow);
         }
         // Disable EMS
         if (currentCondition == Conditions.EMS || currentCondition == Conditions.EMSVisual)

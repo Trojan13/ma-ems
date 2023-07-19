@@ -400,8 +400,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15.978126, y: 18.496605, z: 15.063451}
-  m_Center: {x: -0.08791686, y: 0.08144875, z: -7.031728}
+  m_Size: {x: 19.433699, y: 20.317839, z: 15.063451}
+  m_Center: {x: -0.6033545, y: -0.09946922, z: -7.031728}
 --- !u!114 &1521622966382633025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -631,8 +631,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.816152, y: 12.154755, z: 14.127724}
-  m_Center: {x: -0.16801557, y: 0.38251355, z: -6.5638638}
+  m_Size: {x: 9.499915, y: 9.365151, z: 14.127724}
+  m_Center: {x: -0.23509265, y: 0.11371026, z: -6.563864}
 --- !u!114 &5972566467209123197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1049,6 +1049,7 @@ MonoBehaviour:
   StopIcon: {fileID: 6832535311250924853}
   InnerZone: {fileID: 9076937613579928154}
   OuterZone: {fileID: 140426821973843775}
+  stroopTestController: {fileID: 0}
 --- !u!1 &7516989854494854116
 GameObject:
   m_ObjectHideFlags: 0
