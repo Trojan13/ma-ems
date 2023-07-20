@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44202673, g: 0.4502241, b: 0.47379225, a: 1}
+  m_IndirectSpecularColor: {r: 0.44202876, g: 0.45022064, b: 0.47379425, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -796,9 +796,9 @@ MonoBehaviour:
   leaderboard: {fileID: 1836448936}
   EMSControl: {fileID: 1154005153}
   state: 0
-  subjectID: 1
-  nickname: Tim
-  currentCondition: 1
+  subjectID: 2
+  nickname: Jan
+  currentCondition: 2
 --- !u!114 &243069715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5621,7 +5621,7 @@ Transform:
   m_GameObject: {fileID: 1400819293}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.801, z: 0.615}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1311437860}

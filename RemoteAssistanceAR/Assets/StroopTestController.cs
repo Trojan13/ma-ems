@@ -88,7 +88,7 @@ public class StroopTestController : MonoBehaviour
     void Start()
     {
         timer = GetComponent<TimerSystem>();
-        leaderboard.SetActive(true);
+        leaderboard.SetActive(false);
         InitializeUI();
         string filePath = Application.dataPath + "/sequence.json";
 
@@ -133,7 +133,7 @@ public class StroopTestController : MonoBehaviour
         state = TestState.Playing;
         // Hide startbutton
         startButton.SetActive(false);
-        leaderboard.SetActive(true);
+        leaderboard.SetActive(false);
 
         // Reset the test
         currentTestItemIndex = 0;
@@ -142,7 +142,7 @@ public class StroopTestController : MonoBehaviour
         averageTimeReactionTime = 0;
         timeInZoneHigh = 0;
         timeInZoneLow = 0;
-        
+
 
 
         timer.ResetTimer();
@@ -153,6 +153,7 @@ public class StroopTestController : MonoBehaviour
 
         Debug.Log("Test started. Total time: " + timer.TimePassed);
     }
+
 
     public void EndTest()
     {
@@ -166,7 +167,6 @@ public class StroopTestController : MonoBehaviour
 
         state = TestState.Idle;
 
-        leaderboard.SetActive(false);
 
         SetButtonsEnabled(false);
 
@@ -183,6 +183,7 @@ public class StroopTestController : MonoBehaviour
         );
 
         Debug.Log("Test ended. Total time: " + timer.TimePassed);
+        leaderboard.SetActive(true);
         startButton.SetActive(true);
     }
 
@@ -274,6 +275,16 @@ public class StroopTestController : MonoBehaviour
             button.enabled = enabled;
         }
     }
+
+
+    public void ChangeTestCondition(Conditions newCondition)
+    {
+        if (state != TestState.Playing)
+        {
+            currentCondition = newCondition;
+        }
+    }
+
 
     private void InitializeUI()
     {
@@ -403,4 +414,5 @@ public class StroopTestController : MonoBehaviour
             }
         }
     }
+
 }
