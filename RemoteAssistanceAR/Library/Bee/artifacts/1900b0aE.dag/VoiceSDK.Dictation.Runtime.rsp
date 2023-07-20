@@ -352,7 +352,6 @@
 "Assets/Oculus/Voice/Features/Dictation/Scripts/Runtime/Bindings/Android/PlatformDictationSDKBinding.cs"
 "Assets/Oculus/Voice/Features/Dictation/Scripts/Runtime/Bindings/Android/PlatformDictationSession.cs"
 "Assets/Oculus/Voice/Features/Dictation/Scripts/Runtime/Data/WitDictationRuntimeConfiguration.cs"
-"Assets/Oculus/Voice/Features/Dictation/Scripts/Runtime/Utilities/MicPermissionsManager.cs"
 -langversion:9.0
 
 /deterministic

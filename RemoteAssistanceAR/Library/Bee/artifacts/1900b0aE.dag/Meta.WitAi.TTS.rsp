@@ -358,8 +358,6 @@
 "Assets/Oculus/Voice/Lib/Wit.ai/Features/TTS/Scripts/Runtime/Utilities/TTSSpeaker.cs"
 "Assets/Oculus/Voice/Lib/Wit.ai/Features/TTS/Scripts/Runtime/Utilities/TTSSpeakerAutoLoader.cs"
 "Assets/Oculus/Voice/Lib/Wit.ai/Features/TTS/Scripts/Runtime/Utilities/TTSSpeechSplitter.cs"
-"Assets/Oculus/Voice/Lib/Wit.ai/Features/TTS/Scripts/Runtime/Utilities/VoiceUnityRequest.cs"
-"Assets/Oculus/Voice/Lib/Wit.ai/Features/TTS/Scripts/Runtime/Utilities/WitUnityRequest.cs"
 -langversion:9.0
 
 /deterministic
