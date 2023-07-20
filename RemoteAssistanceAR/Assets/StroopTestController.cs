@@ -31,6 +31,9 @@ public class StroopTestController : MonoBehaviour
     private StroopTestFeedback stroopTestFeedback;
 
     [SerializeField]
+    private GameObject leaderboard;
+
+    [SerializeField]
     private EMSControl EMSControl;
 
     [SerializeField]
@@ -85,7 +88,7 @@ public class StroopTestController : MonoBehaviour
     void Start()
     {
         timer = GetComponent<TimerSystem>();
-
+        leaderboard.SetActive(true);
         InitializeUI();
         string filePath = Application.dataPath + "/sequence.json";
 
@@ -130,6 +133,17 @@ public class StroopTestController : MonoBehaviour
         state = TestState.Playing;
         // Hide startbutton
         startButton.SetActive(false);
+        leaderboard.SetActive(true);
+
+        // Reset the test
+        currentTestItemIndex = 0;
+        correctCount = 0;
+        errorCount = 0;
+        averageTimeReactionTime = 0;
+        timeInZoneHigh = 0;
+        timeInZoneLow = 0;
+        
+
 
         timer.ResetTimer();
         timer.StartTiming();
@@ -152,6 +166,8 @@ public class StroopTestController : MonoBehaviour
 
         state = TestState.Idle;
 
+        leaderboard.SetActive(false);
+
         SetButtonsEnabled(false);
 
         WriteDataToFile(
@@ -167,6 +183,7 @@ public class StroopTestController : MonoBehaviour
         );
 
         Debug.Log("Test ended. Total time: " + timer.TimePassed);
+        startButton.SetActive(true);
     }
 
     private IEnumerator ExecuteSequence()

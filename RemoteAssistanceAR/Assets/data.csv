@@ -1,2 +1,5 @@
 SubjectID,nickname,Condition,ErrorCount,CorrectCount,TotalTime,AvgReactionTime,TimeInZoneHigh,TimeInZoneLow
-1,Tim,Visual,19,11,53.70401,1.790135,10.72311,15.93038
+2,Tim,Visual,19,11,53.70401,1.790135,10.72311,15.93038
+1,Peter,Visual,19,11,10.70401,1.790135,10.72311,15.93038
+4,Wolf,Visual,18,10,10.70401,1.790135,10.72311,15.93038
+7,Waldemar,EMS,18,10,10.70401,1.790135,10.72311,15.93038
