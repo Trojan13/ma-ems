@@ -21,23 +21,24 @@ public class ConditionSelection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Update the state of the buttons
-        foreach (var button in conditionButtons)
-        {
-            StroopTestController.Conditions condition;
-            if (System.Enum.TryParse(button.gameObject.name, out condition))
+        if (stroopTestController.state != StroopTestController.TestState.Playing)
+            // Update the state of the buttons
+            foreach (var button in conditionButtons)
             {
-                if (condition == stroopTestController.currentCondition)
+                StroopTestController.Conditions condition;
+                if (System.Enum.TryParse(button.gameObject.name, out condition))
                 {
-                    // Disable and gray out the button corresponding to the active condition
-                    button.Disable();
-                }
-                else
-                {
-                    // Enable the other buttons and set their color to white
-                    button.Enable();
+                    if (condition == stroopTestController.currentCondition)
+                    {
+                        // Disable and gray out the button corresponding to the active condition
+                        button.Disable();
+                    }
+                    else
+                    {
+                        // Enable the other buttons and set their color to white
+                        button.Enable();
+                    }
                 }
             }
-        }
     }
 }
