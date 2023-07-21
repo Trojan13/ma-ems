@@ -7,11 +7,11 @@ The tasks are designed to test various aspects of user performance under differe
 The project generates a `data.csv` file with recorded data.
 
 **Dependent Variables:**
-- Anzahl Errors
+- Errors count
 - Task Completion Time
 - Reaction Time
 - Time in Zone
-- NASA TLX vs Situation Awareness Rating Technique (SART)
+- NASA TLX
   - Mental
   - Physical
   - Temporal
