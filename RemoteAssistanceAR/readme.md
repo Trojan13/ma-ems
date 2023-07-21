@@ -6,4 +6,37 @@ The tasks are designed to test various aspects of user performance under differe
 
 The project generates a `data.csv` file with recorded data.
 
-Please see the provided documentation for further details on the variables and experimental conditions.
+**Dependent Variables:**
+- Anzahl Errors
+- Task Completion Time
+- Reaction Time
+- Time in Zone
+- NASA TLX vs Situation Awareness Rating Technique (SART)
+  - Mental
+  - Physical
+  - Temporal
+  - Performance
+  - Effort
+  - Frustration
+- UEQ-S
+  - Pragmatic Quality
+  - Hedonic Quality
+  - Overall
+
+**Independent Variables:**
+- Conditions
+  - Audio
+  - Audio + Visual
+  - Audio + EMS
+  - Audio + Visual + EMS
+
+**Control Variables:**
+- Age
+- Sex
+- Prior VR-Experience
+- Prior EMS-Experience
+- Literacy & Colorblindness 
+- Main Hand
+- EMS Calibration Strength
+- EMS Frequency (100Hz)
+- EMS Pulse Width (250µs)
