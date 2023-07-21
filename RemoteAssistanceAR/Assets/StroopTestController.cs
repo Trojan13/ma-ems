@@ -235,13 +235,11 @@ public class StroopTestController : MonoBehaviour
             if (clickedButtonFromRound.isCorrect)
             {
                 correctCount++;
-                Debug.Log("Correct Controller");
                 StartCoroutine(stroopTestFeedback.Correct());
             }
             else
             {
                 errorCount++;
-                Debug.Log("Wrong Controller");
                 StartCoroutine(stroopTestFeedback.Wrong());
             }
             tryCounterText.text = string.Format(
@@ -336,6 +334,7 @@ public class StroopTestController : MonoBehaviour
         string data =
             $"{subjectID},{nickname},{currentCondition},{errorCount},{correctCount},{totalTime.ToString(cultureInfo)},{avgReactionTime.ToString(cultureInfo)},{timeInZoneHigh.ToString(cultureInfo)},{timeInZoneLow.ToString(cultureInfo)}\n";
         File.AppendAllText(filePath, data);
+        Debug.Log($"[CSV ADDED] {data}");
     }
 
     public void OnZoneColliderTriggerEnter(bool isInnerZone, StroopButton button)

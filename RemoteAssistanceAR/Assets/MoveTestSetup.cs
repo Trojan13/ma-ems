@@ -11,8 +11,8 @@ namespace MetaAdvancedFeatures.SceneUnderstanding
         public bool isManualPositioning = false;
         public bool isManualRotating = false;
         public OVRSceneManager SceneManager;
-        public float moveAmount = 1f; // the distance to move in each direction
-        public float rotateAmount = 15f; // the angle to rotate in degrees
+        public float moveAmount = 0.1f; // the distance to move in each direction
+        public float rotateAmount = 0.5f; // the angle to rotate in degrees
 
         private void Awake()
         {
@@ -22,7 +22,6 @@ namespace MetaAdvancedFeatures.SceneUnderstanding
         void Start()
         {
             SceneManager.SceneModelLoadedSuccessfully += OnSceneModelLoadedSuccessfully;
-            Debug.Log("[Moving] Started");
         }
 
         private void OnDestroy()
@@ -48,8 +47,6 @@ namespace MetaAdvancedFeatures.SceneUnderstanding
 
             if (allTables.Length > 0) // Checking if a table was found
             {
-                Debug.Log(allTables[0]);
-
                 Vector3 tableCenter = allTables[0].transform.position;
                 Vector3 tableSize = allTables[0].transform.localScale;
 
@@ -65,12 +62,21 @@ namespace MetaAdvancedFeatures.SceneUnderstanding
             }
         }
 
+        public void ToggleManualPositioning()
+        {
+            isManualPositioning = !isManualPositioning;
+        }
+
+        public void ToggleManualRotating()
+        {
+            isManualRotating = !isManualRotating;
+        }
+
         // Update is called once per frame
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
-                Debug.Log("Sending A");
                 StartCoroutine(MoveTestSetupToTableFunction());
             }
 

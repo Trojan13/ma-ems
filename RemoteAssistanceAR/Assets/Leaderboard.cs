@@ -57,7 +57,7 @@ public class Leaderboard : MonoBehaviour
         foreach (var entry in sortedEntries)
         {
             leaderboardText.text +=
-                $"{i}: {entry.Nickname} - {Math.Round((decimal)entry.Time, 2)} - {entry.Errors}\n";
+                $"{i}: {entry.Nickname} - {Math.Round((decimal)entry.Time, 2)}s - {entry.Errors} E\n";
             i++;
         }
     }

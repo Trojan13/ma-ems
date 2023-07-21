@@ -47,7 +47,6 @@ public class StroopTestFeedback : MonoBehaviour
 
     public IEnumerator Correct()
     {
-        Debug.Log("Correct");
         AudioSource.PlayOneShot(correctSound);
         SpriteRenderer.sprite = correctSprite;
         SpriteRenderer.color = Color.green;
@@ -59,7 +58,6 @@ public class StroopTestFeedback : MonoBehaviour
 
     public IEnumerator Wrong()
     {
-        Debug.Log("Wrong");
         AudioSource.PlayOneShot(wrongSound);
         SpriteRenderer.sprite = wrongSprite;
         SpriteRenderer.color = Color.red;
