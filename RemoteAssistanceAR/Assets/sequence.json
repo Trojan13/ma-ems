@@ -2,179 +2,179 @@
     "rounds": [
         {
             "roundNumber": 1,
-            "outputColor": "Grün",
+            "outputColor": "Yellow",
             "buttons": [
                 {
-                    "buttonColor": "Blue",
-                    "buttonText": "Rot",
-                    "textColor": "Yellow",
+                    "buttonColor": "Red",
+                    "buttonText": "Blue",
+                    "textColor": "Green",
                     "isCorrect": false
                 },
                 {
-                    "buttonColor": "Red",
-                    "buttonText": "Gelb",
-                    "textColor": "Green",
-                    "isCorrect": true
+                    "buttonColor": "Blue",
+                    "buttonText": "Green",
+                    "textColor": "Red",
+                    "isCorrect": false
                 },
                 {
-                    "buttonColor": "Yellow",
-                    "buttonText": "Rot",
+                    "buttonColor": "Green",
+                    "buttonText": "Red",
                     "textColor": "Blue",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Green",
-                    "buttonText": "Gelb",
-                    "textColor": "Blue",
-                    "isCorrect": false
+                    "buttonText": "Red",
+                    "textColor": "Yellow",
+                    "isCorrect": true
                 }
             ]
         },
         {
             "roundNumber": 2,
-            "outputColor": "Rot",
+            "outputColor": "Red",
             "buttons": [
                 {
-                    "buttonColor": "Red",
-                    "buttonText": "Gelb",
-                    "textColor": "Red",
-                    "isCorrect": true
-                },
-                {
-                    "buttonColor": "Blue",
-                    "buttonText": "Grün",
+                    "buttonColor": "Green",
+                    "buttonText": "Blue",
                     "textColor": "Yellow",
                     "isCorrect": false
                 },
                 {
-                    "buttonColor": "Green",
-                    "buttonText": "Blau",
+                    "buttonColor": "Red",
+                    "buttonText": "Yellow",
+                    "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Blue",
+                    "buttonText": "Green",
                     "textColor": "Yellow",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Yellow",
-                    "buttonText": "Blau",
-                    "textColor": "Green",
-                    "isCorrect": false
+                    "buttonText": "Blue",
+                    "textColor": "Red",
+                    "isCorrect": true
                 }
             ]
         },
         {
             "roundNumber": 3,
-            "outputColor": "Gelb",
+            "outputColor": "Yellow",
             "buttons": [
                 {
-                    "buttonColor": "Green",
-                    "buttonText": "Blau",
+                    "buttonColor": "Blue",
+                    "buttonText": "Green",
                     "textColor": "Red",
                     "isCorrect": false
                 },
                 {
-                    "buttonColor": "Red",
-                    "buttonText": "Blau",
-                    "textColor": "Green",
-                    "isCorrect": false
+                    "buttonColor": "Green",
+                    "buttonText": "Blue",
+                    "textColor": "Yellow",
+                    "isCorrect": true
                 },
                 {
-                    "buttonColor": "Blue",
-                    "buttonText": "Rot",
+                    "buttonColor": "Red",
+                    "buttonText": "Blue",
                     "textColor": "Green",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Yellow",
-                    "buttonText": "Grün",
-                    "textColor": "Yellow",
-                    "isCorrect": true
+                    "buttonText": "Red",
+                    "textColor": "Blue",
+                    "isCorrect": false
                 }
             ]
         },
         {
             "roundNumber": 4,
-            "outputColor": "Grün",
+            "outputColor": "Red",
             "buttons": [
                 {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Blue",
+                    "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
                     "buttonColor": "Blue",
-                    "buttonText": "Rot",
+                    "buttonText": "Green",
+                    "textColor": "Yellow",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Blue",
                     "textColor": "Yellow",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Green",
-                    "buttonText": "Blau",
+                    "buttonText": "Red",
                     "textColor": "Red",
-                    "isCorrect": false
-                },
-                {
-                    "buttonColor": "Red",
-                    "buttonText": "Blau",
-                    "textColor": "Green",
                     "isCorrect": true
-                },
-                {
-                    "buttonColor": "Yellow",
-                    "buttonText": "Rot",
-                    "textColor": "Blue",
-                    "isCorrect": false
                 }
             ]
         },
         {
             "roundNumber": 5,
-            "outputColor": "Blau",
+            "outputColor": "Yellow",
             "buttons": [
                 {
-                    "buttonColor": "Yellow",
-                    "buttonText": "Rot",
-                    "textColor": "Green",
-                    "isCorrect": false
-                },
-                {
                     "buttonColor": "Blue",
-                    "buttonText": "Rot",
+                    "buttonText": "Red",
                     "textColor": "Yellow",
-                    "isCorrect": false
-                },
-                {
-                    "buttonColor": "Red",
-                    "buttonText": "Grün",
-                    "textColor": "Blue",
                     "isCorrect": true
                 },
                 {
                     "buttonColor": "Green",
-                    "buttonText": "Gelb",
+                    "buttonText": "Blue",
                     "textColor": "Red",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Blue",
+                    "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Red",
+                    "textColor": "Blue",
                     "isCorrect": false
                 }
             ]
         },
         {
             "roundNumber": 6,
-            "outputColor": "Blau",
+            "outputColor": "Yellow",
             "buttons": [
                 {
-                    "buttonColor": "Blue",
-                    "buttonText": "Gelb",
-                    "textColor": "Blue",
+                    "buttonColor": "Red",
+                    "buttonText": "Yellow",
+                    "textColor": "Yellow",
                     "isCorrect": true
                 },
                 {
                     "buttonColor": "Green",
-                    "buttonText": "Rot",
-                    "textColor": "Yellow",
+                    "buttonText": "Red",
+                    "textColor": "Blue",
                     "isCorrect": false
                 },
                 {
-                    "buttonColor": "Red",
-                    "buttonText": "Gelb",
-                    "textColor": "Green",
+                    "buttonColor": "Blue",
+                    "buttonText": "Green",
+                    "textColor": "Red",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Yellow",
-                    "buttonText": "Rot",
+                    "buttonText": "Red",
                     "textColor": "Green",
                     "isCorrect": false
                 }
@@ -182,209 +182,209 @@
         },
         {
             "roundNumber": 7,
-            "outputColor": "Grün",
+            "outputColor": "Blue",
             "buttons": [
                 {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Green",
+                    "textColor": "Blue",
+                    "isCorrect": true
+                },
+                {
                     "buttonColor": "Red",
-                    "buttonText": "Blau",
-                    "textColor": "Yellow",
+                    "buttonText": "Yellow",
+                    "textColor": "Green",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Green",
-                    "buttonText": "Gelb",
-                    "textColor": "Green",
-                    "isCorrect": true
-                },
-                {
-                    "buttonColor": "Blue",
-                    "buttonText": "Gelb",
+                    "buttonText": "Yellow",
                     "textColor": "Red",
                     "isCorrect": false
                 },
                 {
-                    "buttonColor": "Yellow",
-                    "buttonText": "Blau",
-                    "textColor": "Red",
+                    "buttonColor": "Blue",
+                    "buttonText": "Red",
+                    "textColor": "Yellow",
                     "isCorrect": false
                 }
             ]
         },
         {
             "roundNumber": 8,
-            "outputColor": "Grün",
+            "outputColor": "Green",
             "buttons": [
                 {
-                    "buttonColor": "Yellow",
-                    "buttonText": "Blau",
+                    "buttonColor": "Red",
+                    "buttonText": "Green",
                     "textColor": "Green",
                     "isCorrect": true
                 },
                 {
-                    "buttonColor": "Red",
-                    "buttonText": "Blau",
+                    "buttonColor": "Green",
+                    "buttonText": "Red",
                     "textColor": "Yellow",
                     "isCorrect": false
                 },
                 {
-                    "buttonColor": "Green",
-                    "buttonText": "Blau",
-                    "textColor": "Yellow",
+                    "buttonColor": "Yellow",
+                    "buttonText": "Red",
+                    "textColor": "Blue",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Blue",
-                    "buttonText": "Gelb",
-                    "textColor": "Red",
+                    "buttonText": "Red",
+                    "textColor": "Yellow",
                     "isCorrect": false
                 }
             ]
         },
         {
             "roundNumber": 9,
-            "outputColor": "Blau",
+            "outputColor": "Yellow",
             "buttons": [
                 {
                     "buttonColor": "Red",
-                    "buttonText": "Gelb",
-                    "textColor": "Green",
-                    "isCorrect": false
-                },
-                {
-                    "buttonColor": "Green",
-                    "buttonText": "Rot",
-                    "textColor": "Blue",
+                    "buttonText": "Green",
+                    "textColor": "Yellow",
                     "isCorrect": true
                 },
                 {
-                    "buttonColor": "Yellow",
-                    "buttonText": "Grün",
+                    "buttonColor": "Green",
+                    "buttonText": "Blue",
                     "textColor": "Red",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Blue",
-                    "buttonText": "Gelb",
-                    "textColor": "Red",
+                    "buttonText": "Red",
+                    "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Blue",
+                    "textColor": "Green",
                     "isCorrect": false
                 }
             ]
         },
         {
             "roundNumber": 10,
-            "outputColor": "Grün",
+            "outputColor": "Red",
             "buttons": [
                 {
+                    "buttonColor": "Blue",
+                    "buttonText": "Yellow",
+                    "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
                     "buttonColor": "Yellow",
-                    "buttonText": "Blau",
-                    "textColor": "Red",
+                    "buttonText": "Green",
+                    "textColor": "Blue",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Green",
-                    "buttonText": "Blau",
-                    "textColor": "Yellow",
-                    "isCorrect": false
-                },
-                {
-                    "buttonColor": "Blue",
-                    "buttonText": "Grün",
-                    "textColor": "Green",
+                    "buttonText": "Yellow",
+                    "textColor": "Red",
                     "isCorrect": true
                 },
                 {
-                    "buttonColor": "Red",
-                    "buttonText": "Gelb",
-                    "textColor": "Blue",
+                    "buttonColor": "Green",
+                    "buttonText": "Blue",
+                    "textColor": "Yellow",
                     "isCorrect": false
                 }
             ]
         },
         {
             "roundNumber": 11,
-            "outputColor": "Gelb",
+            "outputColor": "Yellow",
             "buttons": [
                 {
                     "buttonColor": "Blue",
-                    "buttonText": "Gelb",
-                    "textColor": "Yellow",
-                    "isCorrect": true
-                },
-                {
-                    "buttonColor": "Yellow",
-                    "buttonText": "Grün",
-                    "textColor": "Blue",
-                    "isCorrect": false
-                },
-                {
-                    "buttonColor": "Red",
-                    "buttonText": "Grün",
-                    "textColor": "Blue",
+                    "buttonText": "Red",
+                    "textColor": "Green",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Green",
-                    "buttonText": "Blau",
-                    "textColor": "Red",
+                    "buttonText": "Blue",
+                    "textColor": "Yellow",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Green",
+                    "textColor": "Blue",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Red",
+                    "textColor": "Blue",
                     "isCorrect": false
                 }
             ]
         },
         {
             "roundNumber": 12,
-            "outputColor": "Rot",
+            "outputColor": "Green",
             "buttons": [
                 {
-                    "buttonColor": "Blue",
-                    "buttonText": "Grün",
-                    "textColor": "Red",
-                    "isCorrect": true
-                },
-                {
-                    "buttonColor": "Green",
-                    "buttonText": "Blau",
-                    "textColor": "Yellow",
-                    "isCorrect": false
-                },
-                {
                     "buttonColor": "Red",
-                    "buttonText": "Gelb",
+                    "buttonText": "Yellow",
                     "textColor": "Blue",
                     "isCorrect": false
                 },
                 {
-                    "buttonColor": "Yellow",
-                    "buttonText": "Blau",
+                    "buttonColor": "Blue",
+                    "buttonText": "Yellow",
                     "textColor": "Green",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Blue",
+                    "textColor": "Red",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Red",
+                    "textColor": "Blue",
                     "isCorrect": false
                 }
             ]
         },
         {
             "roundNumber": 13,
-            "outputColor": "Grün",
+            "outputColor": "Green",
             "buttons": [
                 {
-                    "buttonColor": "Red",
-                    "buttonText": "Gelb",
-                    "textColor": "Blue",
+                    "buttonColor": "Yellow",
+                    "buttonText": "Blue",
+                    "textColor": "Red",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Blue",
-                    "buttonText": "Grün",
+                    "buttonText": "Red",
+                    "textColor": "Yellow",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Blue",
                     "textColor": "Green",
                     "isCorrect": true
                 },
                 {
-                    "buttonColor": "Yellow",
-                    "buttonText": "Rot",
-                    "textColor": "Blue",
-                    "isCorrect": false
-                },
-                {
-                    "buttonColor": "Green",
-                    "buttonText": "Rot",
+                    "buttonColor": "Red",
+                    "buttonText": "Yellow",
                     "textColor": "Blue",
                     "isCorrect": false
                 }
@@ -392,179 +392,179 @@
         },
         {
             "roundNumber": 14,
-            "outputColor": "Gelb",
+            "outputColor": "Yellow",
             "buttons": [
                 {
                     "buttonColor": "Yellow",
-                    "buttonText": "Rot",
-                    "textColor": "Blue",
+                    "buttonText": "Green",
+                    "textColor": "Red",
                     "isCorrect": false
                 },
                 {
-                    "buttonColor": "Blue",
-                    "buttonText": "Grün",
+                    "buttonColor": "Green",
+                    "buttonText": "Blue",
                     "textColor": "Yellow",
                     "isCorrect": true
                 },
                 {
-                    "buttonColor": "Green",
-                    "buttonText": "Rot",
-                    "textColor": "Blue",
+                    "buttonColor": "Red",
+                    "buttonText": "Blue",
+                    "textColor": "Green",
                     "isCorrect": false
                 },
                 {
-                    "buttonColor": "Red",
-                    "buttonText": "Blau",
-                    "textColor": "Green",
+                    "buttonColor": "Blue",
+                    "buttonText": "Green",
+                    "textColor": "Red",
                     "isCorrect": false
                 }
             ]
         },
         {
             "roundNumber": 15,
-            "outputColor": "Rot",
+            "outputColor": "Blue",
             "buttons": [
                 {
-                    "buttonColor": "Yellow",
-                    "buttonText": "Blau",
+                    "buttonColor": "Blue",
+                    "buttonText": "Green",
+                    "textColor": "Red",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Yellow",
                     "textColor": "Green",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Green",
-                    "buttonText": "Blau",
-                    "textColor": "Yellow",
-                    "isCorrect": false
-                },
-                {
-                    "buttonColor": "Red",
-                    "buttonText": "Gelb",
+                    "buttonText": "Yellow",
                     "textColor": "Red",
-                    "isCorrect": true
+                    "isCorrect": false
                 },
                 {
-                    "buttonColor": "Blue",
-                    "buttonText": "Gelb",
-                    "textColor": "Green",
-                    "isCorrect": false
+                    "buttonColor": "Yellow",
+                    "buttonText": "Green",
+                    "textColor": "Blue",
+                    "isCorrect": true
                 }
             ]
         },
         {
             "roundNumber": 16,
-            "outputColor": "Rot",
+            "outputColor": "Red",
             "buttons": [
                 {
-                    "buttonColor": "Blue",
-                    "buttonText": "Gelb",
-                    "textColor": "Red",
-                    "isCorrect": true
-                },
-                {
-                    "buttonColor": "Red",
-                    "buttonText": "Gelb",
-                    "textColor": "Blue",
+                    "buttonColor": "Yellow",
+                    "buttonText": "Blue",
+                    "textColor": "Green",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Green",
-                    "buttonText": "Blau",
+                    "buttonText": "Yellow",
+                    "textColor": "Blue",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Green",
                     "textColor": "Yellow",
                     "isCorrect": false
                 },
                 {
-                    "buttonColor": "Yellow",
-                    "buttonText": "Grün",
-                    "textColor": "Blue",
-                    "isCorrect": false
+                    "buttonColor": "Blue",
+                    "buttonText": "Green",
+                    "textColor": "Red",
+                    "isCorrect": true
                 }
             ]
         },
         {
             "roundNumber": 17,
-            "outputColor": "Grün",
+            "outputColor": "Red",
             "buttons": [
                 {
                     "buttonColor": "Yellow",
-                    "buttonText": "Rot",
-                    "textColor": "Blue",
-                    "isCorrect": false
+                    "buttonText": "Green",
+                    "textColor": "Red",
+                    "isCorrect": true
                 },
                 {
                     "buttonColor": "Green",
-                    "buttonText": "Blau",
-                    "textColor": "Yellow",
+                    "buttonText": "Yellow",
+                    "textColor": "Blue",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Red",
-                    "buttonText": "Gelb",
-                    "textColor": "Blue",
+                    "buttonText": "Blue",
+                    "textColor": "Yellow",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Blue",
-                    "buttonText": "Grün",
+                    "buttonText": "Yellow",
                     "textColor": "Green",
-                    "isCorrect": true
+                    "isCorrect": false
                 }
             ]
         },
         {
             "roundNumber": 18,
-            "outputColor": "Grün",
+            "outputColor": "Blue",
             "buttons": [
                 {
-                    "buttonColor": "Yellow",
-                    "buttonText": "Rot",
-                    "textColor": "Green",
-                    "isCorrect": true
-                },
-                {
-                    "buttonColor": "Green",
-                    "buttonText": "Gelb",
-                    "textColor": "Red",
+                    "buttonColor": "Red",
+                    "buttonText": "Green",
+                    "textColor": "Yellow",
                     "isCorrect": false
                 },
                 {
-                    "buttonColor": "Red",
-                    "buttonText": "Gelb",
+                    "buttonColor": "Green",
+                    "buttonText": "Blue",
                     "textColor": "Blue",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Red",
+                    "textColor": "Green",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Blue",
-                    "buttonText": "Gelb",
-                    "textColor": "Red",
+                    "buttonText": "Red",
+                    "textColor": "Green",
                     "isCorrect": false
                 }
             ]
         },
         {
             "roundNumber": 19,
-            "outputColor": "Rot",
+            "outputColor": "Red",
             "buttons": [
                 {
                     "buttonColor": "Red",
-                    "buttonText": "Grün",
-                    "textColor": "Red",
-                    "isCorrect": true
-                },
-                {
-                    "buttonColor": "Green",
-                    "buttonText": "Gelb",
+                    "buttonText": "Yellow",
                     "textColor": "Blue",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Yellow",
-                    "buttonText": "Grün",
-                    "textColor": "Blue",
+                    "buttonText": "Blue",
+                    "textColor": "Green",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Blue",
-                    "buttonText": "Grün",
+                    "buttonText": "Yellow",
+                    "textColor": "Red",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Blue",
                     "textColor": "Yellow",
                     "isCorrect": false
                 }
@@ -572,29 +572,29 @@
         },
         {
             "roundNumber": 20,
-            "outputColor": "Rot",
+            "outputColor": "Red",
             "buttons": [
                 {
-                    "buttonColor": "Red",
-                    "buttonText": "Grün",
-                    "textColor": "Yellow",
-                    "isCorrect": false
-                },
-                {
-                    "buttonColor": "Yellow",
-                    "buttonText": "Grün",
+                    "buttonColor": "Green",
+                    "buttonText": "Yellow",
                     "textColor": "Blue",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Blue",
-                    "buttonText": "Gelb",
+                    "buttonText": "Green",
+                    "textColor": "Yellow",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Blue",
                     "textColor": "Red",
                     "isCorrect": true
                 },
                 {
-                    "buttonColor": "Green",
-                    "buttonText": "Gelb",
+                    "buttonColor": "Yellow",
+                    "buttonText": "Green",
                     "textColor": "Blue",
                     "isCorrect": false
                 }
@@ -602,269 +602,269 @@
         },
         {
             "roundNumber": 21,
-            "outputColor": "Rot",
+            "outputColor": "Blue",
             "buttons": [
                 {
-                    "buttonColor": "Green",
-                    "buttonText": "Blau",
-                    "textColor": "Yellow",
-                    "isCorrect": false
+                    "buttonColor": "Yellow",
+                    "buttonText": "Green",
+                    "textColor": "Blue",
+                    "isCorrect": true
                 },
                 {
-                    "buttonColor": "Blue",
-                    "buttonText": "Gelb",
-                    "textColor": "Green",
+                    "buttonColor": "Green",
+                    "buttonText": "Yellow",
+                    "textColor": "Red",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Red",
-                    "buttonText": "Blau",
-                    "textColor": "Red",
-                    "isCorrect": true
+                    "buttonText": "Yellow",
+                    "textColor": "Green",
+                    "isCorrect": false
                 },
                 {
-                    "buttonColor": "Yellow",
-                    "buttonText": "Blau",
-                    "textColor": "Green",
+                    "buttonColor": "Blue",
+                    "buttonText": "Red",
+                    "textColor": "Yellow",
                     "isCorrect": false
                 }
             ]
         },
         {
             "roundNumber": 22,
-            "outputColor": "Gelb",
+            "outputColor": "Yellow",
             "buttons": [
                 {
-                    "buttonColor": "Yellow",
-                    "buttonText": "Blau",
-                    "textColor": "Green",
-                    "isCorrect": false
-                },
-                {
-                    "buttonColor": "Green",
-                    "buttonText": "Blau",
+                    "buttonColor": "Blue",
+                    "buttonText": "Green",
                     "textColor": "Red",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Red",
-                    "buttonText": "Grün",
+                    "buttonText": "Green",
+                    "textColor": "Yellow",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Red",
                     "textColor": "Blue",
                     "isCorrect": false
                 },
                 {
-                    "buttonColor": "Blue",
-                    "buttonText": "Grün",
-                    "textColor": "Yellow",
-                    "isCorrect": true
+                    "buttonColor": "Yellow",
+                    "buttonText": "Green",
+                    "textColor": "Blue",
+                    "isCorrect": false
                 }
             ]
         },
         {
             "roundNumber": 23,
-            "outputColor": "Grün",
+            "outputColor": "Yellow",
             "buttons": [
                 {
-                    "buttonColor": "Blue",
-                    "buttonText": "Rot",
-                    "textColor": "Yellow",
+                    "buttonColor": "Green",
+                    "buttonText": "Blue",
+                    "textColor": "Red",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Red",
-                    "buttonText": "Gelb",
-                    "textColor": "Blue",
-                    "isCorrect": false
-                },
-                {
-                    "buttonColor": "Green",
-                    "buttonText": "Rot",
-                    "textColor": "Blue",
-                    "isCorrect": false
-                },
-                {
-                    "buttonColor": "Yellow",
-                    "buttonText": "Blau",
+                    "buttonText": "Blue",
                     "textColor": "Green",
-                    "isCorrect": true
-                }
-            ]
-        },
-        {
-            "roundNumber": 24,
-            "outputColor": "Blau",
-            "buttons": [
-                {
-                    "buttonColor": "Green",
-                    "buttonText": "Rot",
-                    "textColor": "Yellow",
                     "isCorrect": false
-                },
-                {
-                    "buttonColor": "Red",
-                    "buttonText": "Grün",
-                    "textColor": "Blue",
-                    "isCorrect": true
                 },
                 {
                     "buttonColor": "Blue",
-                    "buttonText": "Rot",
-                    "textColor": "Green",
-                    "isCorrect": false
+                    "buttonText": "Red",
+                    "textColor": "Yellow",
+                    "isCorrect": true
                 },
                 {
                     "buttonColor": "Yellow",
-                    "buttonText": "Grün",
+                    "buttonText": "Green",
                     "textColor": "Red",
                     "isCorrect": false
                 }
             ]
         },
         {
-            "roundNumber": 25,
-            "outputColor": "Blau",
+            "roundNumber": 24,
+            "outputColor": "Red",
             "buttons": [
                 {
                     "buttonColor": "Green",
-                    "buttonText": "Rot",
+                    "buttonText": "Blue",
                     "textColor": "Yellow",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Red",
-                    "buttonText": "Grün",
+                    "buttonText": "Green",
                     "textColor": "Yellow",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Yellow",
-                    "buttonText": "Blau",
+                    "buttonText": "Blue",
+                    "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Blue",
+                    "buttonText": "Yellow",
+                    "textColor": "Red",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "roundNumber": 25,
+            "outputColor": "Blue",
+            "buttons": [
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Yellow",
                     "textColor": "Blue",
                     "isCorrect": true
                 },
                 {
                     "buttonColor": "Blue",
-                    "buttonText": "Rot",
+                    "buttonText": "Yellow",
                     "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Red",
+                    "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Green",
+                    "textColor": "Yellow",
                     "isCorrect": false
                 }
             ]
         },
         {
             "roundNumber": 26,
-            "outputColor": "Gelb",
+            "outputColor": "Blue",
             "buttons": [
                 {
-                    "buttonColor": "Green",
-                    "buttonText": "Rot",
-                    "textColor": "Blue",
-                    "isCorrect": false
-                },
-                {
                     "buttonColor": "Blue",
-                    "buttonText": "Rot",
+                    "buttonText": "Red",
                     "textColor": "Green",
                     "isCorrect": false
                 },
                 {
-                    "buttonColor": "Yellow",
-                    "buttonText": "Rot",
-                    "textColor": "Green",
+                    "buttonColor": "Green",
+                    "buttonText": "Yellow",
+                    "textColor": "Red",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Red",
-                    "buttonText": "Blau",
+                    "buttonText": "Green",
                     "textColor": "Yellow",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Blue",
+                    "textColor": "Blue",
                     "isCorrect": true
                 }
             ]
         },
         {
             "roundNumber": 27,
-            "outputColor": "Blau",
+            "outputColor": "Blue",
             "buttons": [
                 {
-                    "buttonColor": "Blue",
-                    "buttonText": "Rot",
-                    "textColor": "Green",
+                    "buttonColor": "Red",
+                    "buttonText": "Green",
+                    "textColor": "Yellow",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Green",
-                    "buttonText": "Gelb",
+                    "buttonText": "Yellow",
                     "textColor": "Red",
                     "isCorrect": false
                 },
                 {
-                    "buttonColor": "Red",
-                    "buttonText": "Blau",
+                    "buttonColor": "Yellow",
+                    "buttonText": "Red",
                     "textColor": "Blue",
                     "isCorrect": true
                 },
                 {
-                    "buttonColor": "Yellow",
-                    "buttonText": "Grün",
-                    "textColor": "Red",
+                    "buttonColor": "Blue",
+                    "buttonText": "Red",
+                    "textColor": "Green",
                     "isCorrect": false
                 }
             ]
         },
         {
             "roundNumber": 28,
-            "outputColor": "Rot",
+            "outputColor": "Red",
             "buttons": [
                 {
-                    "buttonColor": "Red",
-                    "buttonText": "Grün",
-                    "textColor": "Yellow",
-                    "isCorrect": false
-                },
-                {
-                    "buttonColor": "Green",
-                    "buttonText": "Blau",
-                    "textColor": "Yellow",
-                    "isCorrect": false
-                },
-                {
                     "buttonColor": "Yellow",
-                    "buttonText": "Grün",
+                    "buttonText": "Green",
                     "textColor": "Blue",
                     "isCorrect": false
                 },
                 {
-                    "buttonColor": "Blue",
-                    "buttonText": "Grün",
+                    "buttonColor": "Green",
+                    "buttonText": "Yellow",
                     "textColor": "Red",
                     "isCorrect": true
+                },
+                {
+                    "buttonColor": "Blue",
+                    "buttonText": "Yellow",
+                    "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Yellow",
+                    "textColor": "Green",
+                    "isCorrect": false
                 }
             ]
         },
         {
             "roundNumber": 29,
-            "outputColor": "Rot",
+            "outputColor": "Red",
             "buttons": [
                 {
                     "buttonColor": "Yellow",
-                    "buttonText": "Grün",
-                    "textColor": "Blue",
-                    "isCorrect": false
-                },
-                {
-                    "buttonColor": "Green",
-                    "buttonText": "Gelb",
+                    "buttonText": "Green",
                     "textColor": "Red",
                     "isCorrect": true
                 },
                 {
                     "buttonColor": "Blue",
-                    "buttonText": "Grün",
-                    "textColor": "Yellow",
+                    "buttonText": "Yellow",
+                    "textColor": "Green",
                     "isCorrect": false
                 },
                 {
-                    "buttonColor": "Red",
-                    "buttonText": "Gelb",
+                    "buttonColor": "Green",
+                    "buttonText": "Yellow",
+                    "textColor": "Blue",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Blue",
                     "textColor": "Green",
                     "isCorrect": false
                 }
@@ -872,30 +872,630 @@
         },
         {
             "roundNumber": 30,
-            "outputColor": "Rot",
+            "outputColor": "Yellow",
+            "buttons": [
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Red",
+                    "textColor": "Blue",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Green",
+                    "textColor": "Yellow",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Blue",
+                    "buttonText": "Red",
+                    "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Blue",
+                    "textColor": "Green",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "roundNumber": 31,
+            "outputColor": "Yellow",
             "buttons": [
                 {
                     "buttonColor": "Red",
-                    "buttonText": "Gelb",
+                    "buttonText": "Green",
+                    "textColor": "Blue",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Blue",
+                    "textColor": "Yellow",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Red",
+                    "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Blue",
+                    "buttonText": "Red",
+                    "textColor": "Green",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "roundNumber": 32,
+            "outputColor": "Green",
+            "buttons": [
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Yellow",
+                    "textColor": "Green",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Blue",
+                    "buttonText": "Yellow",
+                    "textColor": "Red",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Blue",
+                    "textColor": "Red",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Blue",
+                    "textColor": "Yellow",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "roundNumber": 33,
+            "outputColor": "Green",
+            "buttons": [
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Blue",
+                    "textColor": "Red",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Red",
+                    "textColor": "Yellow",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Blue",
+                    "textColor": "Green",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Blue",
+                    "buttonText": "Yellow",
+                    "textColor": "Red",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "roundNumber": 34,
+            "outputColor": "Blue",
+            "buttons": [
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Green",
+                    "textColor": "Blue",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Blue",
+                    "buttonText": "Yellow",
+                    "textColor": "Red",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Red",
+                    "textColor": "Yellow",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Red",
+                    "textColor": "Green",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "roundNumber": 35,
+            "outputColor": "Blue",
+            "buttons": [
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Red",
+                    "textColor": "Blue",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Green",
+                    "textColor": "Yellow",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Green",
+                    "textColor": "Red",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Red",
+                    "textColor": "Yellow",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "roundNumber": 36,
+            "outputColor": "Green",
+            "buttons": [
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Blue",
+                    "textColor": "Red",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Yellow",
+                    "textColor": "Green",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Red",
                     "textColor": "Blue",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Blue",
-                    "buttonText": "Gelb",
+                    "buttonText": "Yellow",
+                    "textColor": "Red",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "roundNumber": 37,
+            "outputColor": "Blue",
+            "buttons": [
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Yellow",
+                    "textColor": "Red",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Red",
+                    "textColor": "Blue",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Red",
+                    "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Green",
+                    "textColor": "Yellow",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "roundNumber": 38,
+            "outputColor": "Yellow",
+            "buttons": [
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Red",
+                    "textColor": "Blue",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Blue",
+                    "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Green",
+                    "textColor": "Red",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Blue",
+                    "buttonText": "Green",
+                    "textColor": "Yellow",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "roundNumber": 39,
+            "outputColor": "Red",
+            "buttons": [
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Green",
+                    "textColor": "Red",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Yellow",
                     "textColor": "Green",
                     "isCorrect": false
                 },
                 {
                     "buttonColor": "Green",
-                    "buttonText": "Blau",
+                    "buttonText": "Yellow",
+                    "textColor": "Blue",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Blue",
+                    "buttonText": "Yellow",
+                    "textColor": "Green",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "roundNumber": 40,
+            "outputColor": "Red",
+            "buttons": [
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Blue",
+                    "textColor": "Yellow",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Blue",
+                    "buttonText": "Red",
                     "textColor": "Red",
                     "isCorrect": true
                 },
                 {
                     "buttonColor": "Yellow",
-                    "buttonText": "Grün",
+                    "buttonText": "Green",
                     "textColor": "Blue",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Green",
+                    "textColor": "Blue",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "roundNumber": 41,
+            "outputColor": "Red",
+            "buttons": [
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Blue",
+                    "textColor": "Red",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Yellow",
+                    "textColor": "Blue",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Blue",
+                    "buttonText": "Green",
+                    "textColor": "Yellow",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Blue",
+                    "textColor": "Yellow",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "roundNumber": 42,
+            "outputColor": "Blue",
+            "buttons": [
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Yellow",
+                    "textColor": "Blue",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Yellow",
+                    "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Green",
+                    "textColor": "Red",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Blue",
+                    "buttonText": "Red",
+                    "textColor": "Green",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "roundNumber": 43,
+            "outputColor": "Blue",
+            "buttons": [
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Green",
+                    "textColor": "Yellow",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Blue",
+                    "buttonText": "Red",
+                    "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Yellow",
+                    "textColor": "Red",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Red",
+                    "textColor": "Blue",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "roundNumber": 44,
+            "outputColor": "Yellow",
+            "buttons": [
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Green",
+                    "textColor": "Yellow",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Blue",
+                    "buttonText": "Red",
+                    "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Blue",
+                    "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Red",
+                    "textColor": "Blue",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "roundNumber": 45,
+            "outputColor": "Blue",
+            "buttons": [
+                {
+                    "buttonColor": "Blue",
+                    "buttonText": "Green",
+                    "textColor": "Red",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Green",
+                    "textColor": "Yellow",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Red",
+                    "textColor": "Blue",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Red",
+                    "textColor": "Yellow",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "roundNumber": 46,
+            "outputColor": "Blue",
+            "buttons": [
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Yellow",
+                    "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Red",
+                    "textColor": "Yellow",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Blue",
+                    "buttonText": "Yellow",
+                    "textColor": "Red",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Green",
+                    "textColor": "Blue",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "roundNumber": 47,
+            "outputColor": "Blue",
+            "buttons": [
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Red",
+                    "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Yellow",
+                    "textColor": "Red",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Green",
+                    "textColor": "Blue",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Green",
+                    "textColor": "Yellow",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "roundNumber": 48,
+            "outputColor": "Green",
+            "buttons": [
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Red",
+                    "textColor": "Blue",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Yellow",
+                    "textColor": "Green",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Yellow",
+                    "textColor": "Red",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Blue",
+                    "buttonText": "Red",
+                    "textColor": "Yellow",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "roundNumber": 49,
+            "outputColor": "Yellow",
+            "buttons": [
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Red",
+                    "textColor": "Blue",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Blue",
+                    "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Blue",
+                    "buttonText": "Red",
+                    "textColor": "Yellow",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Blue",
+                    "textColor": "Red",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "roundNumber": 50,
+            "outputColor": "Red",
+            "buttons": [
+                {
+                    "buttonColor": "Yellow",
+                    "buttonText": "Green",
+                    "textColor": "Red",
+                    "isCorrect": true
+                },
+                {
+                    "buttonColor": "Green",
+                    "buttonText": "Yellow",
+                    "textColor": "Blue",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Red",
+                    "buttonText": "Yellow",
+                    "textColor": "Green",
+                    "isCorrect": false
+                },
+                {
+                    "buttonColor": "Blue",
+                    "buttonText": "Yellow",
+                    "textColor": "Green",
                     "isCorrect": false
                 }
             ]

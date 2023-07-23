@@ -39,10 +39,14 @@ function createButton(buttonColor, outputColor, remainingColors, isCorrect) {
   )[0];
   const textColor = isCorrect ? outputColor : remainingColors[0];
 
+  if (buttonColor === textColor) {
+    // set buttonColor to a different color
+    buttonColor = remainingColors[1];
+  }
+
   return {
     buttonColor: buttonColor,
-    // translate buttonText to German
-    buttonText: translateColor(buttonText),
+    buttonText: buttonText,
     textColor: textColor,
     isCorrect: isCorrect,
   };
@@ -75,8 +79,7 @@ function createRound(i, colorOrder) {
 
   return {
     roundNumber: i + 1,
-    outputColor: translateColor(outputColor),
-
+    outputColor: outputColor,
     buttons: buttons,
   };
 }
@@ -96,7 +99,7 @@ function renderRounds(type, count) {
 
   // Output the JSON structure
   console.log(JSON.stringify(testStructure, null, 2));
-  console.log(checkIfOnlyOneIsCorrect(rounds));
+  console.log(checkSequenceForErrors(rounds));
   rounds.forEach((round) => {
     const roundElement = document.createElement("div");
     roundElement.classList.add("round");
@@ -117,28 +120,40 @@ function renderRounds(type, count) {
 }
 
 // Render rounds with "random" color order
-renderRounds("random", 30);
+renderRounds("random", 50);
 
 // Render rounds with "latin" color order
 // renderRounds("latin");
 
 // Helper function to check if only one button is correct and only one button has the output color
-function checkIfOnlyOneIsCorrect(rounds) {
-  return rounds.every((round) => {
-    return (
-      round.buttons.filter((button) => button.isCorrect).length === 1 &&
-      round.buttons.filter((button) => round.outputColor === button.textColor)
-        .length === 1
+function checkSequenceForErrors(rounds) {
+  for (let i = 0; i < rounds.length; i++) {
+    const round = rounds[i];
+    const correctButtons = round.buttons.filter((button) => button.isCorrect);
+    const outputColorButtons = round.buttons.filter(
+      (button) => round.outputColor === button.textColor
     );
-  });
-}
-// Helper function to translate color to German
-function translateColor(color) {
-  return color === "Red"
-    ? "Rot"
-    : color === "Blue"
-    ? "Blau"
-    : color === "Green"
-    ? "Grün"
-    : "Gelb";
+    const sameColorButtons = round.buttons.filter(
+      (button) => button.buttonColor === button.textColor
+    );
+
+    if (
+      correctButtons.length !== 1 ||
+      outputColorButtons.length !== 1 ||
+      sameColorButtons.length !== 0
+    ) {
+      console.log(`Round ${round.roundNumber} is incorrect:`);
+      console.log(`- Number of correct buttons: ${correctButtons.length}`);
+      console.log(
+        `- Number of buttons with output color: ${outputColorButtons.length}`
+      );
+      console.log(
+        `- Number of buttons with same button and text color: ${sameColorButtons.length}`
+      );
+      console.log(round);
+      return false;
+    }
+  }
+
+  return true;
 }
