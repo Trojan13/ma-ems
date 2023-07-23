@@ -4485,7 +4485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serialController: {fileID: 1260860656}
   intensity: 100
-  onTime: 750
+  onTime: 5000
 --- !u!4 &1154005154
 Transform:
   m_ObjectHideFlags: 0
@@ -5335,7 +5335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11442534, guid: a65acf0cbf56b80419f74ebf0bc845f4, type: 3}
       propertyPath: maxUnreadMessages
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a65acf0cbf56b80419f74ebf0bc845f4, type: 3}

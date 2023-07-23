@@ -11,12 +11,11 @@ public class EMSControl : MonoBehaviour
     private bool channel1Active;
 
     // Intensity in percentage (0-100)
-    [SerializeField]
     private int intensity = 100;
 
     // On-time in ms (1-50000)
-    [SerializeField]
-    private int onTime = 5000;
+
+    private int onTime = 500;
 
     void Start()
     {
@@ -53,6 +52,7 @@ public class EMSControl : MonoBehaviour
         channel0Active = enabled;
         if (channel0Active)
         {
+            serialController.SendSerialMessage($"C{0}I{intensity}T{onTime}G");
             timer0.Start();
         }
         else
@@ -67,6 +67,7 @@ public class EMSControl : MonoBehaviour
         channel1Active = enabled;
         if (channel1Active)
         {
+            serialController.SendSerialMessage($"C{1}I{intensity}T{onTime}G");
             timer1.Start();
         }
         else
