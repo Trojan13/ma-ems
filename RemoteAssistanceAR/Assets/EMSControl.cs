@@ -16,7 +16,7 @@ public class EMSControl : MonoBehaviour
 
     // On-time in ms (1-50000)
     [SerializeField]
-    private int onTime = 750;
+    private int onTime = 5000;
 
     void Start()
     {
@@ -43,16 +43,21 @@ public class EMSControl : MonoBehaviour
         }
     }
 
+    private void StopCommand(int channel)
+    {
+        serialController.SendSerialMessage($"C{channel}I{0}T{0}G");
+    }
+
     public void setChannel0Enabled(bool enabled)
     {
         channel0Active = enabled;
         if (channel0Active)
         {
-            SendCommand(1); // Send immediate command
             timer0.Start();
         }
         else
         {
+            StopCommand(0);
             timer0.Stop();
         }
     }
@@ -62,11 +67,11 @@ public class EMSControl : MonoBehaviour
         channel1Active = enabled;
         if (channel1Active)
         {
-            SendCommand(0); // Send immediate command
             timer1.Start();
         }
         else
         {
+            StopCommand(1);
             timer1.Stop();
         }
     }

@@ -37,7 +37,7 @@ public class StroopTestController : MonoBehaviour
     private EMSControl EMSControl;
 
     [SerializeField]
-    private static string[] colorNames = { "Rot", "Blau", "Grün", "Gelb" };
+    private bool isEnglish = false;
 
     [Header("Test Parameters")]
     private TimerSystem timer;
@@ -197,7 +197,9 @@ public class StroopTestController : MonoBehaviour
                     j
                 );
                 stroopButtons[j].SetButtonColorAndText(
-                    currentButtonFromRound.buttonText,
+                    isEnglish
+                        ? currentButtonFromRound.buttonText
+                        : TranslateColor(currentButtonFromRound.buttonText),
                     currentButtonFromRound.GetButtonColor(),
                     currentButtonFromRound.GetTextColor()
                 );
@@ -289,19 +291,19 @@ public class StroopTestController : MonoBehaviour
 
     public void PlayColorSound(string colorString)
     {
-        if (colorString == "Rot")
+        if (colorString == "Red")
         {
             stroopTestFeedback.PlayRed();
         }
-        if (colorString == "Grün")
+        if (colorString == "Green")
         {
             stroopTestFeedback.PlayGreen();
         }
-        if (colorString == "Blau")
+        if (colorString == "Blue")
         {
             stroopTestFeedback.PlayBlue();
         }
-        if (colorString == "Gelb")
+        if (colorString == "Yellow")
         {
             stroopTestFeedback.PlayYellow();
         }
@@ -405,6 +407,24 @@ public class StroopTestController : MonoBehaviour
             {
                 EMSControl.setChannel1Enabled(false);
             }
+        }
+    }
+
+    public string TranslateColor(string color)
+    {
+        switch (color)
+        {
+            case "Red":
+                return "Rot";
+            case "Blue":
+                return "Blau";
+            case "Green":
+                return "Grün";
+            case "Yellow":
+                return "Gelb";
+            default:
+                Debug.LogError("Unknown color: " + color);
+                return "ERROR";
         }
     }
 }
