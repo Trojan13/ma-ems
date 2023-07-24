@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44202673, g: 0.4502241, b: 0.47379225, a: 1}
+  m_IndirectSpecularColor: {r: 0.44202876, g: 0.45022064, b: 0.47379425, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -802,9 +802,9 @@ MonoBehaviour:
   EMSControl: {fileID: 1154005153}
   isEnglish: 0
   state: 0
-  subjectID: 0
-  nickname: Tim
-  currentCondition: 3
+  subjectID: 1
+  nickname: Kathy
+  currentCondition: 1
 --- !u!114 &243069715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4484,8 +4484,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serialController: {fileID: 1260860656}
-  intensity: 100
-  onTime: 5000
 --- !u!4 &1154005154
 Transform:
   m_ObjectHideFlags: 0
