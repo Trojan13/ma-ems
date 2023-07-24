@@ -11,3 +11,4 @@ SubjectID,nickname,Condition,ErrorCount,CorrectCount,TotalTime,AvgReactionTime,T
 0,Nick,Control,1,49,131.3308,2.62661,28.43159,6.406132
 0,Nick,Visual,0,50,125.6625,2.51324,18.17104,2.645554
 0,Nick,EMS,3,47,128.6155,2.572302,27.97661,9.375817
+0,Tim,EMSVisual,2,48,177.7897,3.55581,13.70246,4.235853
