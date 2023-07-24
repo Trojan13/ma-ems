@@ -108,6 +108,9 @@ function renderRounds(type, count) {
     round.buttons.forEach((button) => {
       const buttonElement = document.createElement("div");
       buttonElement.classList.add("button");
+      if (button.isCorrect) {
+        buttonElement.classList.add("correct");
+      }
       buttonElement.style.backgroundColor = button.buttonColor;
       buttonElement.style.color = button.textColor;
       buttonElement.innerHTML = button.buttonText;
