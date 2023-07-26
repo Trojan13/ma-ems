@@ -802,9 +802,9 @@ MonoBehaviour:
   EMSControl: {fileID: 1154005153}
   isEnglish: 0
   state: 0
-  subjectID: 1
-  nickname: Kathy
-  currentCondition: 1
+  subjectID: 3
+  nickname: Fabi
+  currentCondition: 2
 --- !u!114 &243069715
 MonoBehaviour:
   m_ObjectHideFlags: 0
