@@ -48,7 +48,11 @@ public class Leaderboard : MonoBehaviour
     public List<LeaderboardEntry> SortLeaderboardEntries(List<LeaderboardEntry> entries)
     {
         // Sort by time (ascending) and then by errors (ascending)
-        return entries.OrderBy(entry => entry.Time).ThenByDescending(entry => entry.Errors).Take(3).ToList();
+        return entries
+            .OrderBy(entry => (entry.Time + (entry.Errors * 2)))
+            .ThenByDescending(entry => entry.Errors)
+            .Take(3)
+            .ToList();
     }
 
     public void DisplayLeaderboard(List<LeaderboardEntry> sortedEntries)
@@ -57,7 +61,7 @@ public class Leaderboard : MonoBehaviour
         foreach (var entry in sortedEntries)
         {
             leaderboardText.text +=
-                $"{i}: {entry.Nickname} - {Math.Round((decimal)entry.Time, 2)}s\n";
+                $"{i}: {entry.Nickname} - {Math.Round((decimal)entry.Time, 2)}s ({entry.Errors} Errors)\n";
             i++;
         }
     }
