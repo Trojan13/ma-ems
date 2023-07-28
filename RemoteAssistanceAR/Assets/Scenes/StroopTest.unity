@@ -804,7 +804,7 @@ MonoBehaviour:
   state: 0
   subjectID: 10
   nickname: Fiani
-  currentCondition: 1
+  currentCondition: 2
 --- !u!114 &243069715
 MonoBehaviour:
   m_ObjectHideFlags: 0
