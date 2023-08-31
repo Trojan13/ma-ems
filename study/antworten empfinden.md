@@ -52,3 +52,16 @@ deutlich, schneller
 - Es setzt Bewegungs- und Reaktionsimpulse. Verringert Fehlerquote.
 - Bei der Reaktionszeit nicht unbedingt verkürzend, aber im Hinblick auf Fehlervermeidung positiv. Das Signal erfolgte in meinem Fall früh genug, so dass es mich davon abgehalten hat, den falschen Knopf zu drücken.
 - Die Wahrnehmung verlief sehr viel unterbewusster und schneller, da ich das Signal weniger bewusst verarbeiten musste als das Verstehen und Verarbeiten eines Audiosignals.
+
+## Eigene Notizen
+ - Kabel schränken Bewegungen ein
+ - EMS hilft bei Vermeidung von Doppeldrücken
+ - EMS hilft bei Fokussierung
+ - Probanten eventuell vorsichtiger von EMS zuvor
+ - Kabel behindern Tracking
+ - Handtracking Probleme im Allgemeinen
+ - Lerneffekte beim Umgang mit VR
+ - Mögliche nächste Studie ohne VR nur Handtracking
+ - Visuals wurden als störend empfunden
+ - Handpositionen tracken. Heatmap?
+ - Delay des EMS könnte Feedbak zur Strafe machen
