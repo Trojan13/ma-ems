@@ -1,0 +1,5 @@
+Condition,TLX_MentalDemand,TLX_PhysicalDemand,TLX_TimeDemand,TLX_Performance,TLX_Effort,TLX_Frustration,Overall
+Control,55.0,20.36,52.86,37.14,50.36,37.14,42.14
+EMS,59.29,32.86,53.93,38.93,46.79,42.86,45.77
+EMSVisual,58.21,32.14,58.93,37.14,47.14,56.43,48.33
+Visual,55.0,23.57,56.07,36.43,53.93,43.21,44.7
