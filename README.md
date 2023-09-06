@@ -7,6 +7,7 @@ This repository contains the work and code related to my master's thesis, which 
 * `BLE_Emulator_Python`: A Python implementation of the BLE communication with the EM70 device, including a WebSocket server for frontend communication.
 * `RemoteAssistanceAR`: A Unity project that was used to conduct the study, featuring an interactive task for participants to perform, involving voice commands and button presses under different feedback conditions.
 * `emscontrolfrontend`: A frontend application for sending BLE packets to the EM70 device and controlling it.
-* `study`: Files related to the study, including generators, visualizers, and exported LimeSurvey.org templates.
+* `study`: Files related to the study, including analysis, data, visualizers, and exported LimeSurvey.org templates.
+* `StroopTestVisualizer`: Javascript tool to generate and visualize the Stroop-Color-Sequences.
 
 Please visit the README in each folder for more information.
